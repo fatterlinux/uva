@@ -37,3 +37,79 @@ struct bign
         
         return *this;
     }
+    
+    void clean()
+    {
+        while (len > 1 && !s[len - 1]) len--;
+        return ;
+    }
+    
+    bign operator*(const bign& b)
+    {
+        bign c;
+        c.len = len + b.len;
+        
+        for (int i = 0; i <len; i++)
+        {
+            for (int j = 0; j <b.len; j++)
+            {
+                c.s[i+j] = s[i] * b.s[j];
+            }
+        }
+        
+        for (int i = 0; i < c.len - 1; i++)
+        {
+            s[i+1] += s[i] / 10;
+            s[i] = s[i] % 10;
+        }
+        c.clean();
+        
+        return c;
+    }
+    
+    bign(const char* num)
+    {
+        *this = num;
+    }
+    bign(int num)
+    {
+        *this = num;
+    }
+    string str() const
+    {
+        string res;
+        for (int i = 0; i <len; i++)
+        {
+            res = char(s[i] + '0') + res;
+        }
+        if (res.empty()) res = "0";
+        return res;
+    }
+};
+
+istream& operator>>(istream& in, bign& x)
+{
+    string res;
+    in >> res;
+    x = res.c_str();
+    
+    return in;
+}
+
+ostream& operator<<(ostream& out, const bign& x)
+{
+    cout << bign.str();
+    return out;
+}
+
+int main()
+{
+    bign a, b;
+    
+    while (cin >> a >> b)
+    {
+        
+        cout << a*b << endl;
+    }
+    return 0;
+}
