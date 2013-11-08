@@ -44,7 +44,7 @@ struct bign
         return ;
     }
     
-    bign operator*(const bign& b)
+    bign operator*(const bign& b) const 
     {
         bign c;
         c.len = len + b.len;
@@ -53,14 +53,14 @@ struct bign
         {
             for (int j = 0; j <b.len; j++)
             {
-                c.s[i+j] += s[i] * b.s[j];
+                c.s[i+j] += s[i] * b.s[j];//没有累加...
             }
         }
         
         for (int i = 0; i < c.len - 1; i++)
         {
-            s[i+1] += s[i] / 10;
-            s[i] = s[i] % 10;
+            c.s[i+1] += c.s[i] / 10;//没有进位 用的s[i+1]
+            c.s[i] = c.s[i] % 10;
         }
         c.clean();
         
