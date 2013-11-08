@@ -53,7 +53,7 @@ struct bign
         {
             for (int j = 0; j <b.len; j++)
             {
-                c.s[i+j] = s[i] * b.s[j];
+                c.s[i+j] += s[i] * b.s[j];
             }
         }
         
