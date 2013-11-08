@@ -17,7 +17,7 @@ struct bign
     }
     ~bign(){}
     
-    bign operator=(cosnt char* num)
+    bign operator=(const char* num)
     {
         len = strlen(num);
         
@@ -98,7 +98,7 @@ istream& operator>>(istream& in, bign& x)
 
 ostream& operator<<(ostream& out, const bign& x)
 {
-    cout << bign.str();
+    cout << x.str();
     return out;
 }
 
