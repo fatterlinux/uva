@@ -1,11 +1,12 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include <stdio.h>//sprintf not defined
 
 using namespace std;
 
-cosnt int max_len = 3000;
-class bign
+const int max_len = 3000;//const 写错
+struct bign
 {
     char n[max_len];
     int len;
@@ -82,12 +83,12 @@ class bign
         
         for (int i = 0, g = 0; g || i < c.len; i++)
         {
-            s[i] = g + s[i];
-            g = s[i] / 10;
-            s[i] = s[i] % 10;
+            c.n[i] = g + c.n[i];
+            g = c.n[i] / 10;
+            c.n[i] = c.n[i] % 10;
         }
         
-        clean();
+        c.clean();//没有对象调用clean
     }
 };
 
