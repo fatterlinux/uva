@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>//sort compile error
 
 using namespace std;
 int idx;
@@ -17,9 +18,9 @@ int main()
         vector<int> v;
         while (a--)
         {
-            v.insert(a);
+            v.push_back(a);//no insert method, compile error
         }
-        sort(v.begin, v.end);
+        sort(v.begin(), v.end());
         cout << "CASE# " << idx << ":" << endl;
         while (b--)
         {
