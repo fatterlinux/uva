@@ -117,6 +117,8 @@ int main()
     
     while (cin >> a >> b)
     {
+        size_t dot = a.find('.');
+        unsigned int dot_num = (6 - 1 - dot) * b;
         cout << a * b <<endl;
     }
     
