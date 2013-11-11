@@ -115,7 +115,9 @@ int main()
 {
     string a;
     int b;
-    
+#ifdef __LO__
+    freopen("748.in", "r", stdin);
+#endif
     while (cin >> a >> b)
     {
         size_t dot = a.find('.');
@@ -143,6 +145,13 @@ int main()
         {
             size_t sub_idx = s.size() - dot_num;
             ss = s.substr(0, sub_idx) + '.' + s.substr(sub_idx);
+        }
+        
+        for (int i = 0; i < ss.size(); i++)
+        {
+            int len_ss = ss.size();
+            if (ss[len_ss - 1] != '0') break;
+            ss = ss.erase(len_ss - 1, 1);
         }
         cout << ss <<endl;
     }
