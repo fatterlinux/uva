@@ -105,7 +105,7 @@ istream& operator>>(istream& in, bign& b)
     b = res.c_str();
     return in;
 }
-ostream& operator<<(ostream& out, const bing& b)
+ostream& operator<<(ostream& out, const bign& b)
 {
     cout << b.str();
     return out;
@@ -113,19 +113,22 @@ ostream& operator<<(ostream& out, const bing& b)
 
 int main()
 {
-    bign a, b;
+    string a;
+    int b;
     
     while (cin >> a >> b)
     {
         size_t dot = a.find('.');
         unsigned int dot_num = (6 - 1 - dot) * b;
-        bign res = a;
+        bign a_no_dot = a.erase(dot, 1).c_str();
+        bign res = a_no_dot;
         for (int i = 0; i < b - 1; i++)
         {
-            bign b = a * res;
-            res = b;
+            bign t = a_no_dot * res;
+            res = t;
         }
         string s = res.str();
+        string ss;
         if (s.size() <= dot_num)
         {
             int zero_times = dot_num - s.size();
@@ -134,11 +137,12 @@ int main()
                 s = '0' + s;
             }
             s = '.' + s;
+            ss = s;
         }
         else
         {
             size_t sub_idx = s.size() - dot_num;
-            string ss = s.substr(0, sub_idx) + '.' + s.substr(sub_idx);
+            ss = s.substr(0, sub_idx) + '.' + s.substr(sub_idx);
         }
         cout << ss <<endl;
     }
