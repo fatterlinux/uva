@@ -20,8 +20,11 @@ bool cmp_fun(const key_value& a, const key_value& b)
 int main()
 {
     string a, b;
-    while (cin >> a)
+    int n;
+    cin >> n;
+    while (n--)
     {
+        cin >> a;
         getline(cin, b);
         int i;
         for (i = 0; i < idx; i++ )
