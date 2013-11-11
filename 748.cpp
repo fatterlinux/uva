@@ -56,4 +56,55 @@ class bign
         }
         return res;
     }
+    void clean()
+    {
+        for (int i = len - 1; i > 0; i--)
+        {
+            if (n[i] == 0)
+            {
+                len--;
+            }
+        }
+        return;
+    }
+    bign operator*(const bign& b) const
+    {
+        bign c;
+        c.len = len + b.len;
+        
+        for (int i = 0; i < len; i++)
+        {
+            for (int j = 0; j <b.len; j++)
+            {
+                c.n[i+j] = n[i]*b.n[j];
+            }
+        }
+        
+        clean();
+    }
 };
+
+istream& operator>>(istream& in, bign& b)
+{
+    string res;
+    cin >> res;
+    b = res.c_str();
+    return in;
+}
+ostream& operator<<(ostream& out, const bing& b)
+{
+    cout << b.str();
+    return out;
+}
+
+int main()
+{
+    bign a, b;
+    
+    while (cin >> a >> b)
+    {
+        cout << a * b <<endl;
+    }
+    
+    return 0;
+}
