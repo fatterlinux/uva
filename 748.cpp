@@ -80,6 +80,13 @@ class bign
             }
         }
         
+        for (int i = 0, g = 0; g || i < c.len; i++)
+        {
+            s[i] = g + s[i];
+            g = s[i] / 10;
+            s[i] = s[i] % 10;
+        }
+        
         clean();
     }
 };
