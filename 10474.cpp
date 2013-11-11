@@ -18,7 +18,9 @@ int main()
         vector<int> v;
         while (a--)
         {
-            v.push_back(a);//no insert method, compile error
+            int t;
+            cin >> t;
+            v.push_back(t);//no insert method, compile error
         }
         sort(v.begin(), v.end());
         cout << "CASE# " << idx << ":" << endl;
@@ -31,7 +33,7 @@ int main()
             {
                 if (v[i] == t)
                 {
-                    cout << t << " found at " << i << endl;
+                    cout << t << " found at " << i + 1 << endl;
                     break;
                 }
             }
