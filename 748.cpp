@@ -8,7 +8,7 @@ using namespace std;
 const int max_len = 3000;//const 写错
 struct bign
 {
-    char n[max_len];
+    int n[max_len];
     int len;
     
     bign()
@@ -23,7 +23,7 @@ struct bign
         len = strlen(num);
         for (int i = 0; i < len; i++)
         {
-            n[i] = num[len - 1 - i];
+            n[i] = num[len - 1 - i] - '0';
         }
         
         return *this;
@@ -49,7 +49,7 @@ struct bign
         string res = "";
         for (int i = 0; i < len; i++)
         {
-            res = n[i] + res;
+            res = char(n[i] + '0') + res;
         }
         if (res.empty())
         {
@@ -65,6 +65,10 @@ struct bign
             {
                 len--;
             }
+            else
+            {
+                break;
+            }
         }
         return;
     }
@@ -77,7 +81,7 @@ struct bign
         {
             for (int j = 0; j <b.len; j++)
             {
-                c.n[i+j] = n[i]*b.n[j];
+                c.n[i+j] += n[i]*b.n[j];
             }
         }
         
@@ -89,6 +93,8 @@ struct bign
         }
         
         c.clean();//没有对象调用clean
+        
+        return c;
     }
 };
 
