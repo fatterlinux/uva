@@ -2,7 +2,7 @@
 #include <sstream>
 
 using namespace std;
-
+//loc 是bottom，即已loc为底进行翻转
 void filp(int arr[], int arr_len, int loc)
 {
   int bottom = loc;
@@ -47,7 +47,7 @@ int main()
       }
       if (max_idx != i)
       {
-        if (max_idx != 0)//bottom idx
+        if (max_idx != 0)//最大元素不在top，则filp到top
         {
           filp(arr, idx, max_idx);
           if (first) first = false;
@@ -57,7 +57,7 @@ int main()
           }
           cout << idx - max_idx;
         }
-        filp(arr, idx, i);
+        filp(arr, idx, i);//最大元素此时在top,filp 最大元素到当前的底部
         if (first) first = false;
         else
         {
