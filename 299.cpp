@@ -20,12 +20,15 @@ int bubble(vector<int>& a)
     {
       if (a[i] > a[j])
       {
-        swap_int(a[i], a[j]);
+        //swap_int(a[i], a[j]);
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t; 
         step++;
       }
     }
   }
-  reutrn step;
+  return step;
 }
 
 int main()
@@ -37,14 +40,31 @@ int main()
   {
     int L;
     cin  >> L;
-    vector<int> v;
+    //vector<int> v;
+    int array[100];
+    int array_len = 0;
     while (L--)
     {
       int t;
       cin >> t;
-      v.push_back(t);
+      //v.push_back(t);
+      array[array_len++] = t;
     }
-    cout << "Optimal train swapping takes " << bubble(v) << " swaps." << endl;
+    int step = 0;
+    for (int i = 0; i < array_len - 1; i++)
+    {
+      for (int j = i + 1; j < array_len; j++)
+      {
+        if (array[i] > array[j])
+        {
+          int t = array[i];
+          array[i] = array[j];
+          array[j] = t;
+          step++;
+        }
+      }
+    }
+    cout << "Optimal train swapping takes " << step << " swaps." << endl;
   }
   
 }
