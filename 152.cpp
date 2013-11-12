@@ -42,7 +42,7 @@ int main()
     for (int j = 0; j < idx; j++)
     {
       if (i == j) continue;
-      int t = distance_get(N[i], N[j])
+      int t = distance_get(N[i], N[j]);
       if (min > t)
       {
         t = min;
