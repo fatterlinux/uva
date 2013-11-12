@@ -38,14 +38,14 @@ int main()
   }
   for (int i = 0; i < idx; i++)
   {
-    int min = 0xffffffff;
+    int min = (1 << 31) - 1;//0xffffffff是-1
     for (int j = 0; j < idx; j++)
     {
       if (i == j) continue;
       int t = distance_get(N[i], N[j]);
       if (min > t)
       {
-        t = min;
+        min = t;//t = min 没有意义
       }
     }
     if (min >= 0 && min <= 9)
@@ -58,5 +58,6 @@ int main()
     printf("%4d", res[i]);
   }
   
+  printf("\n");//格式问题
   return 0;
 }
