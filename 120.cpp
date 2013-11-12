@@ -20,7 +20,7 @@ int main()
   string s;
   while (getline(cin, s))
   {
-    stringstream ss << s;
+    stringstream ss(s);
     int a;
     int arr[40];
     int idx = 0;
@@ -28,6 +28,12 @@ int main()
     {
       arr[idx++] = a;
     }
+    for (int i = 0; i < idx; i++)
+    {
+      if (i) cout <<" ";
+      cout << arr[i];
+    }
+    cout << endl;
     bool first = true;
     for (int i = idx - 1; i > 0; i--)
     {
@@ -41,14 +47,23 @@ int main()
       }
       if (max_idx != i)
       {
-        filp(arr, idx, max_idx);
-        filp(arr, idx, 1);
+        if (max_idx != 0)//bottom idx
+        {
+          filp(arr, idx, max_idx);
+          if (first) first = false;
+          else
+          {
+            cout <<" ";
+          }
+          cout << idx - max_idx;
+        }
+        filp(arr, idx, i);
         if (first) first = false;
         else
         {
           cout << " ";
         }
-        cout << max_idx << " " << 1;
+        cout << idx - i;
       }
     }
     if (!first) cout << " ";
