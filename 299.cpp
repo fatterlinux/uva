@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <vector>//用vector会超时...
 
 using namespace std;
 
