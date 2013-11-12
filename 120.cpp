@@ -5,7 +5,7 @@ using namespace std;
 
 void filp(int arr[], int arr_len, int loc)
 {
-  int bottom = arr_len - loc;
+  int bottom = loc;
   for (int i = 0; i <= bottom/2; i++)
   {
     int t = arr[i];
