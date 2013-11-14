@@ -35,9 +35,9 @@ int main()
     {
       for (int j = 0; j < row; j++)
       {
-        if (j + column < v.size())
+        if ((j*column+i) < v.size())
         {
-          string res = v[j + column];
+          string res = v[j*column+i];
           int space_len = len - res.size();
           cout << res;
           for (int k = 0; k < space_len; k++)
