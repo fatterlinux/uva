@@ -10,7 +10,7 @@ using namespace std;
 char words[1010][25];
 int words_len;
 char work_words[1010][25];
-void pre_handl(char a[]][25], char b[][25], int len);
+void pre_handl(char a[][25], char b[][25], int len);
 void run(char a[][25], char b[][25], int len);
 int main()
 {
@@ -39,8 +39,8 @@ void sort_and_insensive(char* src, char* dst)
   {
     if (isupper(dst[i]))
     dst[i] = tolower(dst[i]);
-    sort(dst, dst+len);
   }
+  sort(dst, dst+len);
 }
 void pre_handl(char a[][25], char b[][25], int len)
 {
