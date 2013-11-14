@@ -23,12 +23,12 @@ struct node
   void set_vowel_value(char c)
   {
     m_c = c;
-    m_times = 20;
+    m_times = 21;
   }
   void set_con_value(char c)
   {
     m_c = c;
-    m_times = 4;
+    m_times = 5;
   }
 };
 struct odd_vowel
@@ -88,6 +88,7 @@ int main()
 {
   int test_case;
   cin >>test_case;
+  int test_idx = 1;
   while (test_case--)
   {
     int len;
@@ -112,6 +113,8 @@ int main()
     sort(even.begin(), even.end());
     int odd_index = 0;
     int even_index = 0;
+    cout << "Case " << test_idx << ": " << endl;
+    test_idx++;
     for (int i = 1; i <= len; i++)
     
     {
