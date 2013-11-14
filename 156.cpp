@@ -8,17 +8,17 @@
 using namespace std;
 
 char words[1010][25];
-const int words_len;
+int words_len;
 char work_words[1010][25];
-void pre_handl(char** a, char** b);
-void run(char** a, char** b);
+void pre_handl(char a[]][25], char b[][25], int len);
+void run(char a[][25], char b[][25], int len);
 int main()
 {
   //char in_word[25];
   
   while (scanf("%s", words[words_len]) != EOF)
   {
-    if (words[0] == '#')
+    if (words[words_len][0] == '#')
     {
       words_len--;
       break;
@@ -42,7 +42,7 @@ void sort_and_insensive(char* src, char* dst)
     sort(dst, dst+len);
   }
 }
-void pre_handl(char** a, char** b, int len)
+void pre_handl(char a[][25], char b[][25], int len)
 {
   for (int i = 0; i < len; i++)
   {
@@ -52,7 +52,7 @@ void pre_handl(char** a, char** b, int len)
   return;
 }
 
-void run(char** a , char** b, int len)
+void run(char a[][25] , char b[][25], int len)
 {
   vector<string> v;
   for (int i = 0; i <len; i++)
