@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <algorithm>
+#include <iostream>
+#include <string.h>
+#include <vector>
+
+using namespace std;
 
 char words[1010][25];
-const words_len;
+const int words_len;
 char work_words[1010][25];
 void pre_handl(char** a, char** b);
 void run(char** a, char** b);
