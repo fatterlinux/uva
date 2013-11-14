@@ -116,7 +116,6 @@ int main()
     cout << "Case " << test_idx << ": ";
     test_idx++;
     for (int i = 1; i <= len; i++)
-    
     {
       if (i % 2)
       {
@@ -129,4 +128,5 @@ int main()
     }
     cout <<endl;
   }
+  return 0;
 }
