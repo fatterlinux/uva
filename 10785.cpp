@@ -33,7 +33,7 @@ struct node
 struct odd_vowel
 {
   node n[5];
-  static char map[5] = {'A', 'U', 'E', 'O', 'I'};
+  static char map[5];
   odd_vowel()
   {
     for (int i = 0; i < 5; i++)
@@ -55,6 +55,7 @@ struct odd_vowel
     return 'x';
   }
 };
+char odd_vowel::map[5] = {'A', 'U', 'E', 'O', 'I'};
 struct even_con
 {
   node n[21];
@@ -79,11 +80,9 @@ struct even_con
     assert(0);
     return 'x';
   }
-}
-char get_odd(odd_vowel& o)//a, u, e, o, i
-{
-  for (int i = 0; i < )
-}
+};
+char even_con::map[21] = {'J', 'S', 'B', 'K', 'T', 'C', 'L', 'D', 'M', 'V', 'N', 'W', 'F', 'X', 'G', 'P', 'Y', 'H', 'Q', 'Z', 'R'};
+
 int main()
 {
   int test_case;
