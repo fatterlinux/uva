@@ -113,7 +113,7 @@ int main()
     sort(even.begin(), even.end());
     int odd_index = 0;
     int even_index = 0;
-    cout << "Case " << test_idx << ": " << endl;
+    cout << "Case " << test_idx << ": ";
     test_idx++;
     for (int i = 1; i <= len; i++)
     
