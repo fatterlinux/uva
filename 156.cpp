@@ -20,7 +20,7 @@ int main()
   {
     if (words[words_len][0] == '#')
     {
-      words_len--;
+      //words_len--;  不能减了，少个元素，test case:a\n#
       break;
     }
     
