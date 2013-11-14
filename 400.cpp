@@ -31,7 +31,7 @@ int main()
       }
     }
     int row = (max_len - len) / (2*len) + 1;//关键，计算一行存储的单词数
-    int column = word_num / row + 1;//输出的行数
+    int column = word_num / row + (word_num % row ? 1 : 0);//输出的行数
     for (int i = 0; i < column; i++)
     {
       for (int j = 0; j < row; j++)
