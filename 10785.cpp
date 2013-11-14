@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <assert.h>
 
 using namespace std;
 
@@ -59,7 +60,7 @@ char odd_vowel::map[5] = {'A', 'U', 'E', 'O', 'I'};
 struct even_con
 {
   node n[21];
-  static char map[21] = {'J', 'S', 'B', 'K', 'T', 'C', 'L', 'D', 'M', 'V', 'N', 'W', 'F', 'X', 'G', 'P', 'Y', 'H', 'Q', 'Z', 'R'};
+  static char map[21];
   even_con()
   {
     for (int i = 0; i < 21; i++)
