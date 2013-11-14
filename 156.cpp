@@ -70,7 +70,7 @@ void run(char a[][25] , char b[][25], int len)
       {
         continue;
       }
-      if (0 == strcmp(b[i], b[j])))
+      if (0 == strcmp(b[i], b[j]))
       {
         found = true;
         break;
