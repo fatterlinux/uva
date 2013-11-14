@@ -44,9 +44,13 @@ struct odd_vowel
 struct even_con
 {
   node n[21];
+  static char map[21] = {'J', 'S', 'B', 'K', 'T', 'C', 'L', 'D', 'M', 'V', 'N', 'W', 'F', 'X', 'G', 'P', 'Y', 'H', 'Q', 'Z', 'R'};
   even_con()
   {
-    
+    for (int i = 0; i < 21; i++)
+    {
+      n[i].set_con_value(map[i]);
+    }
   }
 }
 char get_odd()//a, u, e, o, i
