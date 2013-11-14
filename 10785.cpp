@@ -18,24 +18,37 @@ struct node
     m_times = i.times;
     return *this;
   }
-  void set_value(char c, int times)
+  void set_vowel_value(char c)
   {
     m_c = c;
-    m_times = times;
+    m_times = 20;
+  }
+  void set_con_value(char c)
+  {
+    m_c = c;
+    m_times = 4;
   }
 };
 struct odd_vowel
 {
   node n[5];
+  static char map[5] = {'A', 'U', 'E', 'O', 'I'};
   odd_vowel()
   {
-    n[0].set_value('A', 4);
-    n[1].set_value('U', 4);
-    n[2].set_value('E', 4);
-    n[3].set_value('O', 4);
-    n[4].set_value('I', 4);
+    for (int i = 0; i < 5; i++)
+    {
+      n[i].set_vowel_value(map[i]);
+    }
   }
 };
+struct even_con
+{
+  node n[21];
+  even_con()
+  {
+    
+  }
+}
 char get_odd()//a, u, e, o, i
 {
   for (int i = 0; i < )
