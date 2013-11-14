@@ -12,7 +12,7 @@ int main()
   int n;
   while (cin >> n)
   {
-    cout << seq << endl;
+    cout << sep << endl;
     vector<string> v;
     while (n--)
     {
@@ -21,7 +21,14 @@ int main()
       v.push_back(s);
     }
     sort(v.begin(), v.end());
-    int len = v[v.size()-1].size();
+    int len = 0;
+    for (int i = 0; i < v.size(); i++)
+    {
+      if (v[i].size() > len)
+      {
+        len = v[i].size();
+      }
+    }
     int row = (max_len - len) / 2 + 1;//关键，计算一行存储的单词数
     int column = n / row + 1;//输出的行数
     for (int i = 0; i < column; i++)
