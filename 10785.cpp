@@ -40,6 +40,19 @@ struct odd_vowel
       n[i].set_vowel_value(map[i]);
     }
   }
+  char get_char()
+  {
+    for (int i = 0; i < 5; i++)
+    {
+      if (n[i].times)
+      {
+        n[i].times--;
+        return n[i].c;
+      }
+    }
+    assert(0);
+    return 'x';
+  }
 };
 struct even_con
 {
@@ -52,8 +65,21 @@ struct even_con
       n[i].set_con_value(map[i]);
     }
   }
+  char get_char()
+  {
+    for (int i = 0; i < 21; i++)
+    {
+      if (n[i].times)
+      {
+        n[i].times--;
+        return n[i].c;
+      }
+    }
+    assert(0);
+    return 'x';
+  }
 }
-char get_odd()//a, u, e, o, i
+char get_odd(odd_vowel& o)//a, u, e, o, i
 {
   for (int i = 0; i < )
 }
@@ -67,15 +93,17 @@ int main()
     cin >> len;
     int idx = 1;
     string odd, even;
+    odd_vowel o;
+    even_con e;
     while (idx <= len)
     {
       if (idx % 2)//odd
       {
-        odd = odd + get_odd();
+        odd = odd + o.get_char();
       }
       else //even
       {
-        even = even + get_even();
+        even = even + e.get_char();
       }
     }
     sort(odd.begin(), odd.end());
