@@ -14,6 +14,7 @@ int main()
   {
     cout << sep << endl;
     vector<string> v;
+    int word_num = n;
     while (n--)
     {
       string s;
@@ -29,8 +30,8 @@ int main()
         len = v[i].size();
       }
     }
-    int row = (max_len - len) / 2 + 1;//关键，计算一行存储的单词数
-    int column = n / row + 1;//输出的行数
+    int row = (max_len - len) / (2*len) + 1;//关键，计算一行存储的单词数
+    int column = word_num / row + 1;//输出的行数
     for (int i = 0; i < column; i++)
     {
       for (int j = 0; j < row; j++)
