@@ -81,7 +81,7 @@ void run(char a[][25] , char b[][25], int len)
       v.push_back(s);
     }
   }
-  v.sort(v.begin(), v.end(), cmp_fun);
+  sort(v.begin(), v.end());
   for (int i = 0; i < v.size(); i++)
   {
     cout << v[i] << endl;
