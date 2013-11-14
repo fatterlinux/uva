@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ struct node
   node& operator=(const node& i)
   {
     m_c = i.m_c;
-    m_times = i.times;
+    m_times = i.m_times;
     return *this;
   }
   void set_vowel_value(char c)
@@ -44,10 +45,10 @@ struct odd_vowel
   {
     for (int i = 0; i < 5; i++)
     {
-      if (n[i].times)
+      if (n[i].m_times)
       {
-        n[i].times--;
-        return n[i].c;
+        n[i].m_times--;
+        return n[i].m_c;
       }
     }
     assert(0);
@@ -69,10 +70,10 @@ struct even_con
   {
     for (int i = 0; i < 21; i++)
     {
-      if (n[i].times)
+      if (n[i].m_times)
       {
-        n[i].times--;
-        return n[i].c;
+        n[i].m_times--;
+        return n[i].m_c;
       }
     }
     assert(0);
