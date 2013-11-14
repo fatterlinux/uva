@@ -30,7 +30,7 @@ int main()
         len = v[i].size();
       }
     }
-    int row = (max_len - len) / (2*len) + 1;//关键，计算一行存储的单词数
+    int row = (max_len - len) / (2+len) + 1;//关键，计算一行存储的单词数
     int column = word_num / row + (word_num % row ? 1 : 0);//输出的行数
     for (int i = 0; i < column; i++)
     {
@@ -39,7 +39,7 @@ int main()
         if ((j*column+i) < v.size())
         {
           string res = v[j*column+i];
-          int space_len = len - res.size();
+          int space_len = len + 2- res.size();
           cout << res;
           for (int k = 0; k < space_len; k++)
           {
