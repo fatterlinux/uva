@@ -110,7 +110,8 @@ int main()
     }
     sort(odd.begin(), odd.end());
     sort(even.begin(), even.end());
-    int odd_index = even_index = 0;
+    int odd_index = 0;
+    itn even_index = 0;
     for (int i = 1; i <= len; i++)
     
     {
