@@ -106,19 +106,21 @@ int main()
       {
         even = even + e.get_char();
       }
+      idx++;
     }
     sort(odd.begin(), odd.end());
     sort(even.begin(), even.end());
+    int odd_index = even_index = 0;
     for (int i = 1; i <= len; i++)
     
     {
       if (i % 2)
       {
-        cout << odd[i-1];
+        cout << odd[odd_index++];
       }
       else
       {
-        cout << even[i-1];
+        cout << even[even_index++];
       }
     }
     cout <<endl;
