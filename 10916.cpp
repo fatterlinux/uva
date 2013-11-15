@@ -17,9 +17,10 @@ int main()
     if (!n) break;
     int bit_num = get_bit_num(n);
     double sum = 0;
-    for (int i = 1; sum < bit_num; i++)
+    int i;
+    for (i = 1; sum < bit_num; i++)
     {
-      sum += log10(i)/1og10(2);
+      sum += log(1.0*i)/log(2.0);
     }
     cout << i - 2 << endl;
   }
