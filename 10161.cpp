@@ -10,13 +10,11 @@ long long sum(int n)
 
 int main()
 {
-  int test_case;
-  cin >> test_case;
-  while (test_case--)
+  int n;
+  while (1)
   {
-    int n;
     cin >> n;
-    
+    if (!n) break;
     long long sum0, sum1;
     sum1 = 0;
     sum0 = 0;
