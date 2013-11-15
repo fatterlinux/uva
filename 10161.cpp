@@ -24,6 +24,7 @@ int main()
       sum0 = sum1;
       sum1 = sum(i);
     }
+    i--;
     long long num = n - sum0;
     bool half_more = false;
     long long center = ((2*i)-1)/2 + 1;
@@ -34,7 +35,7 @@ int main()
     if (half_more)
     {
      
-      for (j = center - 1; idx != 0; j--, idx--);
+      for (j = center - 1; idx != 1; j--, idx--);
       if (i % 2)
       cout << j << " " << center << endl;
       else
@@ -44,7 +45,7 @@ int main()
     }
     else
     {
-      for (j = 1; idx != 0; j++, idx--);
+      for (j = 1; idx != 1; j++, idx--);
       if (i % 2)
       cout << center << " " << j << endl;
       else
