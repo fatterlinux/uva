@@ -28,8 +28,8 @@ int main()
     }
     long long num = n - sum0;
     bool half_more = false;
-    long long center = (2*i)-1)/2 + 1;
-    long long idx = abs(num - center);
+    long long center = ((2*i)-1)/2 + 1;
+    long long idx;
     if (num > center) {half_more = true; idx = num - center;}
     else {idx = num;}
     long long j;
