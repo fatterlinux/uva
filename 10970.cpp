@@ -1,12 +1,11 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-  int m, n;
-  while (cin >> m >> n)
+  int a, b;
+  while (scanf("%d %d", &a, &b)!= EOF)
   {
-    cout << m*n-1 << endl;
+    printf("%d\n", a*b-1);
   }
   return 0;
 }
