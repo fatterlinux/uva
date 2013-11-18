@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <stack>
-uisng namespace std;
+#include <assert.h>
+using namespace std;
 
 
 struct matrix
@@ -25,14 +26,14 @@ struct matrix
   }
   bool is_sep() const
   {
-    return ((m_row != -2) && (m_columnt != -2));
+    return ((m_row != -2) && (m_column != -2));
   }
   matrix operator *(const matrix& a) const
   {
     matrix c;
     if (m_column != a.m_row)
     {
-      c.m_row = c.column = -1;
+      c.m_row = c.m_column = -1;
       return c;
     }
     c.m_row = m_row;
@@ -49,10 +50,12 @@ int main()
 {
   int n;
   matrix map[26];
+  cin >> n;
   while (n--)
   {
     char c;
     int row, column;
+    cin >> c >> row >> column;
     map[int(c - 'A')] = matrix(row, column);
   }
   string s;
