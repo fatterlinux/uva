@@ -26,7 +26,7 @@ struct matrix
   }
   bool is_sep() const
   {
-    return ((m_row != -2) && (m_column != -2));
+    return ((m_row == -2) && (m_column == -2));
   }
   matrix operator *(const matrix& a) const
   {
