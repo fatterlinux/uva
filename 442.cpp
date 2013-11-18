@@ -96,6 +96,10 @@ int main()
               err_flag = true;
               break;
             }
+            else
+            {
+              cnt += m.mul_times_get(t);
+            }
           }
         }
       }
@@ -110,4 +114,5 @@ int main()
       cout << cnt << endl;
     }
   }
+  return 0;
 }
