@@ -60,6 +60,32 @@ int main()
   {
     string s;
     cin >> s;
-    for ()
+    stack<node*> ss;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (islower(s[i]))
+      {
+        node* t = node_create(s[i], NULL, NULL);
+        ss.push(t);
+      }
+      else if (isupper(s[i]))
+      {
+        node* b = ss.top();
+        ss.pop();
+        node* a = ss.top();
+        ss.pop();
+        node* t = node_create(s[i], a, b);
+        ss.push(t);
+      }
+      else
+      {
+        assert(0);
+      }
+    }
+    node* t = ss.top();
+    ss.pop();
+    bfs(t);
+    cout <<endl;
   }
+  return 0;
 }
