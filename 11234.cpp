@@ -3,6 +3,7 @@
 #include <queue>
 #include <stack>
 #include <string>
+#include <assert.h>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ struct node
   node* r;
 };
 
-node* node_create(char data, node* l, node* t)
+node* node_create(char data, node* l, node* r)
 {
   node* t  = (node*)malloc(sizeof(*t));
   if (t)
@@ -86,6 +87,7 @@ int main()
     ss.pop();
     bfs(t);
     cout <<endl;
+    node_free(t);
   }
   return 0;
 }
