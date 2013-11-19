@@ -77,6 +77,8 @@ void play(piles& ps, const pile& p)
       {
         ps.erase(ps.begin()+i);
       }
+      ps[j].push(c);
+      i = j;
     }
   }
   return;
