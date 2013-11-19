@@ -20,7 +20,7 @@ typedef stack<card> pile;
 typedef vector<pile> piles;
 
 void play(piles& ps, const pile& p);
-
+void play_res(const piles& ps);
 
 int main()
 {
@@ -38,7 +38,54 @@ int main()
         end_flag = true;
         break;
       }
+      card c(s[0], s[1]);
+      pile p;
+      p.push(c);
+      play(ps, p);
     }
     if (end_flag) break;
+    play_res(ps);
   }
+  return 0;
+}
+
+void play(piles& ps, pile p)
+{
+  ps.push_back(p);
+  
+  for (int i = ps.size() - 1; i < ps.size(); i++)
+  {
+    int j;
+    for (j = i; j > 0; j--)
+    {
+      if (j >= 3)
+      {
+        match_card(ps[j-3].top(), ps[i].top());
+        j -= 2;
+        continue;
+      }
+      if (!match_card(ps[j-1].top(), ps[i].top()))
+      {
+        break;
+      }
+    }
+    if (j != i)//可以移动
+    {
+      card c = ps[i].top();
+      ps[i].pop();
+      if (ps[i].empty())
+      {
+        ps.erase()
+      }
+    }
+  }
+}
+void play_res(const piles& ps)
+{
+  cout << ps.size() << ((ps.size() > 1) ? " piles " : " pile ") << " remaining: ";
+  for (int i = 0; i < ps.size(); i++)
+  {
+    cout << ps[i].size() << " ";
+  }
+  cout << endl;
 }
