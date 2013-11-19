@@ -85,7 +85,7 @@ void play(piles& ps, const pile& p)
 }
 void play_res(const piles& ps)
 {
-  cout << ps.size() << ((ps.size() > 1) ? " piles " : " pile ") << " remaining: ";
+  cout << ps.size() << ((ps.size() > 1) ? " piles " : " pile ") << "remaining: ";
   for (int i = 0; i < ps.size(); i++)
   {
     cout << ps[i].size() << " ";
