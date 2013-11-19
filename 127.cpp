@@ -75,10 +75,11 @@ void play(piles& ps, pile p)
       ps[i].pop();
       if (ps[i].empty())
       {
-        ps.erase()
+        ps.erase(ps.begin()+i);
       }
     }
   }
+  return;
 }
 void play_res(const piles& ps)
 {
