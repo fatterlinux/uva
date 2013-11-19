@@ -12,14 +12,14 @@ int main()
   {
     bool days[3651];
     memset(days, 0, sizeof(days));
-    int party_num, days;
+    int party_num, days_num;
     cin >> days_num;
     cin >> party_num;
     while (party_num--)
     {
       int step;
       cin >> step;
-      for (i = step; i <= days_num; i += step)
+      for (int i = step; i <= days_num; i += step)
       {
         days[i] = true;
       }
