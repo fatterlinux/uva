@@ -49,7 +49,7 @@ int main()
   return 0;
 }
 
-void play(piles& ps, pile p)
+void play(piles& ps, const pile& p)
 {
   ps.push_back(p);
   
@@ -89,4 +89,5 @@ void play_res(const piles& ps)
     cout << ps[i].size() << " ";
   }
   cout << endl;
+  return;
 }
