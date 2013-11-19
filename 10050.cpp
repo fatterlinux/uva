@@ -27,7 +27,7 @@ int main()
     int cnt = 0;
     for (int i = 1; i <= days_num; i++)
     {
-      if (days[i] && (i%7==0) && (i%7) == 6)
+      if (days[i] && (i%7 != 0) && (i%7 != 6))
       {
         cnt++;
       }
