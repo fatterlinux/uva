@@ -12,12 +12,12 @@ int main()
   while (test_case--)
   {
     int turtle_num;
-    string t
-    getline(cin, t);
     cin >> turtle_num;
     vector<string> v1;
     vector<string> v2;
     int cnt = turtle_num;
+    string t;
+    getline(cin, t);
     while (cnt--)
     {
       string s;
@@ -31,7 +31,8 @@ int main()
       getline(cin, s);
       v2.push_back(s);
     }
-    int i = j = v1.size() - 1;
+    int i,j ;
+    i= j = v1.size() - 1;
     for (; i >= 0; )
     {
       if (v1[i] == v2[j])
