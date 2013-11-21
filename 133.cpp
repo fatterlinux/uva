@@ -116,7 +116,7 @@ void solve(strategy& a)
     else
     {
       //ss << "  " << a.value_get(l_idx) << "  " << a.value_get(r_idx) << ",";
-      printf("%3d%3d", a.value_get(l_idx), a.value_get(r_idx));
+      printf("%3d%3d", a.value_get(l_idx), a.value_get(r_idx));//占位符没注意，output里面的10前只有一个空格，还以为题的输出错了。。坑
       a.del(l_idx);
       a.del(r_idx);
     }
