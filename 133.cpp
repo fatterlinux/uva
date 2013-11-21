@@ -21,6 +21,10 @@ struct node
   {
     return valid;
   }
+  int value_get()
+  {
+    return value;
+  }
 };
 struct strategy
 {
@@ -105,10 +109,13 @@ void solve(strategy& a)
     if (l_idx == r_idx)
     {
       ss << "  " << a.value_get(l_idx) << ",";
+      a.del(l_idx);
     }
     else
     {
       ss << "  " << a.value_get(l_idx) << a.value_get(r_idx) << ",";
+      a.del(l_idx);
+      a.del(r_idx);
     }
   }
   string s(ss.str());
