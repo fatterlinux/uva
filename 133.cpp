@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -101,26 +102,33 @@ void solve(strategy& a)
 {
   int l_idx = a.m_n - 1;
   int r_idx = 0;
-  stringstream ss;
+  //stringstream ss;
   while (!a.empty())
   {
     l_idx = a.l_idx_get(l_idx);
     r_idx = a.r_idx_get(r_idx);
     if (l_idx == r_idx)
     {
-      ss << "  " << a.value_get(l_idx) << ",";
+      //ss << "  " << a.value_get(l_idx) << ",";
+      printf("%3d", a.value_get(l_idx));
       a.del(l_idx);
     }
     else
     {
-      ss << "  " << a.value_get(l_idx) << "  " << a.value_get(r_idx) << ",";
+      //ss << "  " << a.value_get(l_idx) << "  " << a.value_get(r_idx) << ",";
+      printf("%3d%3d", a.value_get(l_idx), a.value_get(r_idx));
       a.del(l_idx);
       a.del(r_idx);
     }
+    if (!a.empty())
+    {
+      printf(",");
+    }
   }
-  string s(ss.str());
-  s.erase(s.end() - 1);
-  cout << s << endl;
+  //string s(ss.str());
+  //s.erase(s.end() - 1);
+  //cout << s << endl;
+  printf("\n");
   return;
 }
 int main()
@@ -130,8 +138,10 @@ int main()
   {
     if (!n && !lk && !rm)
     {
+      //cout << endl;
       break;
     }
+    
     strategy a(n, lk, rm);
     solve(a);
   }
