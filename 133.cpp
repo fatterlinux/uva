@@ -8,7 +8,7 @@ struct node
 {
   bool valid;
   int value;
-  node(int value = 0, bool valid = true){}
+  node(int m_value = 0, bool m_valid = true){value = m_value; valid = m_valid;}
   void value_set(int n)
   {
     value = n;
@@ -113,7 +113,7 @@ void solve(strategy& a)
     }
     else
     {
-      ss << "  " << a.value_get(l_idx) << a.value_get(r_idx) << ",";
+      ss << "  " << a.value_get(l_idx) << "  " << a.value_get(r_idx) << ",";
       a.del(l_idx);
       a.del(r_idx);
     }
