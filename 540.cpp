@@ -34,7 +34,7 @@ struct team_queue
   }
   int dequeue()
   {
-    int idx = team_order.pop();
+    int idx = team_order.front();
     assert(!team[idx].empty());
     int e = team[idx].front();
     team[idx].pop();
@@ -52,20 +52,24 @@ int main()
   int case_idx = 0;
   while (cin >> team_num)
   {
-    if (!test_num) break;
-    team_quue Q;
+    if (!team_num) break;
+    team_queue Q;
+    int team_idx  = 0;
     while (team_num--)
     {
+      team_idx ++;
       int elm_num;
-      cin >> elm_num
+      cin >> elm_num;
       while (elm_num--)
       {
         int e;
         cin >> e;
-        Q.elm_team_idx_set(e);
+        Q.elm_team_idx_set(team_idx, e);
       }
     }
-    string cmd
+    cout << "Scenario #" << case_idx << endl;
+    case_idx++;
+    string cmd;
     while (cin >> cmd)
     {
       if (cmd == "ENQUEUE")
