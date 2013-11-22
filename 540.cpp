@@ -67,8 +67,9 @@ int main()
         Q.elm_team_idx_set(team_idx, e);
       }
     }
-    cout << "Scenario #" << case_idx << endl;
     case_idx++;
+    cout << "Scenario #" << case_idx << endl;
+    
     string cmd;
     while (cin >> cmd)
     {
