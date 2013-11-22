@@ -47,3 +47,46 @@ struct team_queue
 };
 
 int main()
+{
+  int team_num;
+  int case_idx = 0;
+  while (cin >> team_num)
+  {
+    if (!test_num) break;
+    team_quue Q;
+    while (team_num--)
+    {
+      int elm_num;
+      cin >> elm_num
+      while (elm_num--)
+      {
+        int e;
+        cin >> e;
+        Q.elm_team_idx_set(e);
+      }
+    }
+    string cmd
+    while (cin >> cmd)
+    {
+      if (cmd == "ENQUEUE")
+      {
+        int e;
+        cin >> e;
+        Q.enqueue(e);
+      }
+      else if (cmd == "DEQUEUE")
+      {
+        cout << Q.dequeue() << endl;
+      }
+      else if (cmd == "STOP")
+      {
+        break;
+      }
+      else
+      {
+        assert(0);
+      }
+    }
+    cout << endl;
+  }
+}
