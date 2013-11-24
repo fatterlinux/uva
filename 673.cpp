@@ -1,8 +1,9 @@
 #include <iostram>
 #include <stack>
 #include <string>
+#include <assert.h>
 
-uisng namespace std;
+using namespace std;
 
 int main(void)
 {
@@ -37,6 +38,10 @@ int main(void)
                     break;
                 }
                 ss.pop();
+            }
+            else
+            {
+                assert(0);
             }
         }//end for
         if (ss.empty() && correct_flag)
