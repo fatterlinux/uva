@@ -55,7 +55,7 @@ int main(void)
             }
             else if (q[i] > 0)
             {
-                if (checker.empty() || (abs(checker.top()) != q[i]))
+                if (checker.empty() || (abs(checker.top()) != q[i]))//没有abs
                 {
                     //assert (0);
                     err_flag = false;
