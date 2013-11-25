@@ -47,12 +47,7 @@ int main(void)
             }
             else if (q[i] > 0)
             {
-                if (checker.empty())
-                {
-                    err_flag = false;
-                    break;
-                }
-                if (checker.top() != q[i])
+                if (checker.empty() || (checker.top() != q[i]))
                 {
                     err_flag = false;
                     break;
