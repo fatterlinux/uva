@@ -4,7 +4,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <queue>
+#include <vector>
 #include <assert.h>
 
 using namespace std;
@@ -20,17 +20,25 @@ struct node
 };
 int main(void)
 {
+    freopen("test.in", "r", stdin);
     string s;
     while (getline(cin, s))
     {
         stringstream ss(s);
         int num;
-        queue<int> q;
+        vector<int> q;
         while (ss >> num)
         {
             q.push_back(num); 
         }
-        if (q.size() % 2)
+#if 0
+        for (int i = 0; i < q.size(); i ++)
+        {
+            cout << q[i] << " ";
+        }
+        cout << endl;
+#endif
+        if ((q.size() == 0) ||q.size() % 2)
         {
             cout << ":-( Try again." << endl;
             continue;
@@ -43,12 +51,13 @@ int main(void)
             if (q[i] < 0)
             {
                 sc.push(node(q[i]));
-                checker(q[i]);
+                checker.push(q[i]);
             }
             else if (q[i] > 0)
             {
-                if (checker.empty() || (checker.top() != q[i]))
+                if (checker.empty() || (abs(checker.top()) != q[i]))
                 {
+                    //assert (0);
                     err_flag = false;
                     break;
                 }
@@ -58,6 +67,7 @@ int main(void)
                 }
                 if (sc.empty())
                 {
+                    //assert (0);
                     err_flag = false;
                     break;
                 }
@@ -71,6 +81,7 @@ int main(void)
                         pre.m_b -= q[i];
                         if (pre.m_b <= 0)
                         {
+                    //assert (0);
                             err_flag = false;
                             break;
                         }
@@ -81,6 +92,7 @@ int main(void)
                     }
                     else if (i != (q.size() - 1))
                     {
+                    //assert (0);
                         err_flag = false;
                         break;
                     }
@@ -94,6 +106,7 @@ int main(void)
                    t.m_b -= q[i];
                    if (t.m_b <= 0)
                    {
+                    //assert (0);
                         err_flag = false;
                         break;
                    }
