@@ -20,7 +20,7 @@ struct node
 };
 int main(void)
 {
-    freopen("test.in", "r", stdin);
+    //freopen("test.in", "r", stdin);
     string s;
     while (getline(cin, s))
     {
@@ -31,88 +31,52 @@ int main(void)
         {
             q.push_back(num); 
         }
-#if 0
-        for (int i = 0; i < q.size(); i ++)
-        {
-            cout << q[i] << " ";
-        }
-        cout << endl;
-#endif
+
         if ((q.size() == 0) ||q.size() % 2)
         {
             cout << ":-( Try again." << endl;
             continue;
         }
         stack<node> sc;
-        stack<int> checker;
         bool err_flag(true);
         for (int i = 0; i < q.size(); i++)
         {
             if (q[i] < 0)
             {
                 sc.push(node(q[i]));
-                checker.push(q[i]);
             }
             else if (q[i] > 0)
             {
-                if (checker.empty() || (abs(checker.top()) != q[i]))//没有abs
+                if (sc.empty() || (abs(sc.top().m_a) != q[i]))//没有abs
                 {
                     //assert (0);
                     err_flag = false;
                     break;
-                }
-                else
-                {
-                    checker.pop();
-                }
-                if (sc.empty())
-                {
-                    //assert (0);
-                    err_flag = false;
-                    break;
-                }
-                if (q[i] == abs(sc.top().m_a))
-                {
-                    sc.pop();
-                    if (!sc.empty())
-                    {
-                        node pre = sc.top();
-                        sc.pop();
-                        pre.m_b -= q[i];
-                        if (pre.m_b <= 0)
-                        {
-                    //assert (0);
-                            err_flag = false;
-                            break;
-                        }
-                        else
-                        {
-                            sc.push(pre);
-                        }
-                    }
-                    else if (i != (q.size() - 1))
-                    {
-                    //assert (0);
-                        err_flag = false;
-                        break;
-                    }
-                    else/*last elm end OK! */
-                    {}
-                }
-                else/*q[i] != abs(sc.top())*/
-                {
-                   node t = sc.top();
-                   sc.pop();
-                   t.m_b -= q[i];
-                   if (t.m_b <= 0)
-                   {
-                    //assert (0);
-                        err_flag = false;
-                        break;
-                   }
-                   sc.push(t);
                 }
 
+                sc.pop();
+                if (!sc.empty())
+                {
+                    node pre = sc.top();
+                    sc.pop();
+                    pre.m_b -= q[i];
+                    if (pre.m_b <= 0)
+                    {
+                        err_flag = false;
+                        break;
+                    }
+                    else
+                    {
+                        sc.push(pre);
+                    }
+                }
+                else if (i != (q.size() - 1))
+                {
+                    err_flag = false;
+                    break;
+                }
+                else/*last elm end OK! */
+                {}
             }
             else
             {
