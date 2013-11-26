@@ -20,7 +20,7 @@ struct node
 };
 int main(void)
 {
-    //freopen("test.in", "r", stdin);
+    //freopen("test.in", "r", stdin); 这句话是wa，还以为会超时呢。。。
     string s;
     while (getline(cin, s))
     {
