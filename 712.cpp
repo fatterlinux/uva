@@ -8,6 +8,7 @@ using namespace std;
 int main()
 {
   int num_elm;
+  int test_case = 1;
   while (cin >> num_elm && num_elm)
   {
     int cnt = 0;
@@ -16,12 +17,13 @@ int main()
     {
       string s;
       cin >> s;
-      order.push_back(s[i] - '0');
+      order.push_back(s[1] - '0');
     }
     string termi;
     cin >> termi;
     int num_val;
     cin >> num_val;
+    cout << "S-Tree #" << test_case++ << ":" <<endl;
     while (num_val--)
     {
       string value;
