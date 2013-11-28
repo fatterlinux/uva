@@ -71,20 +71,21 @@ void output(int res[])
     }
     s << res[idx];
   }
-  s << endl;
-  cout << s.str();
+  //s << endl;
+  //cout << s.str();
   string ss(s.str());
-  int cnt  = 0;
+  int cnt1  = 0;
   for (int i = 0; i < ss.size(); i++)
   {
-    if (cnt == 80)
+    if (cnt1 == 80)
     {
       cout << endl;
-      cnt = 0;
+      cnt1 = 0;
     }
     cout << ss[i];
-    cnt++;
+    cnt1++;
   }
+  cout << endl << endl;
 }
 struct node
 {
