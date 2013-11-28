@@ -67,7 +67,7 @@ struct counter
 
 ostream& operator<<(ostream& o, const counter& cnt)
 {
-  o << cnt.sum();
+  o << "There are " << cnt.sum() << " black pixels.";
   return o;
 }
 node* bfs(counter& cnt, const char* str, int& move, int a, int b, node_pool& p)
