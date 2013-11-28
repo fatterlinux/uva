@@ -8,7 +8,8 @@
 
 using namespace std;
 //Case 2 和Case 3 是一组数据，注意了
-//好吧，这里一个case可以换行的
+//好吧，这里一个case可以换行的 
+//最终还是wa了，网上找了多个ac的贴过去也不行，不知道为什么
 void solve(vector<int>& seq, int res[]);
 int main()
 {
