@@ -50,7 +50,7 @@ struct counter
   {
     a[idx] = true;
   }
-  bool value_get(int idx)
+  bool value_get(int idx) const
   {
     return a[idx];
   }
@@ -70,7 +70,7 @@ ostream& operator<<(ostream& o, const counter& cnt)
   o << cnt.sum();
   return o;
 }
-node* bfs(counter& cnt, const char* str, int& move, int a, int b)
+node* bfs(counter& cnt, const char* str, int& move, int a, int b, node_pool& p)
 {
   node* root = p.alloc();
   root->value_set(str[move++]);
@@ -104,9 +104,9 @@ int main()
     int move;
     counter cnt;
     node_pool p;
-    bfs(cnt, s.c_str(), move = 0, 0, max_len - 1);
+    bfs(cnt, s.c_str(), move = 0, 0, max_len - 1, p);
     cin >> s;
-    bfs(cnt, s.c_str(), move = 0, 0, max_len - 1);
+    bfs(cnt, s.c_str(), move = 0, 0, max_len - 1, p);
     cout << cnt << endl;
   }
   
