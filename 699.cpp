@@ -25,7 +25,7 @@ int main()
       seq.push_back(e);
     }
     int res[1000];
-    memset(res, -1, sizeof(res));
+    memset(res, 0, sizeof(res));
     solve(seq, res);
   }
   return 0;
@@ -34,11 +34,11 @@ int main()
 void output(int res[])
 {
   int idx = 0;
-  while (res[idx++] == -1);
+  while (res[idx++] == 0);
   cout << 
   for (; idx < 1000; idx++)
   {
-    if (res[idx] == -1) break;
+    if (res[idx] == 0) break;
     cout << res[idx];
   }
 }
@@ -58,21 +58,16 @@ node* build(vector<int>& seq, int& idx)
   root->l = build(seq, idx);
   idx++;
   root->r = build(seq, idx);
-  idx++;
   return root;
 }
 void bfs(node* root, int res, int idx)
 {
-  if (res[idx] == -1)
-  {
-    res[idx] = root->value;
-  }
-  else
+  if (root)
   {
     res[idx] += root->value;
+    bfs(root->l, res, idx-1);
+    bfs(root->r, res, idx+1);
   }
-  bfs(root->l, res, idx-1);
-  bfs(root->r, res, idx+1);
   return;
 }
 void solve(vector<int>& seq, int res[])
