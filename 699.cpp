@@ -88,10 +88,21 @@ void bfs(node* root, int res[], int idx)
   }
   return;
 }
+void tree_free(node* root)
+{
+  if (root)
+  {
+    tree_free(root->l);
+    tree_free(root->r);
+    free(root);
+  }
+  return;
+}
 void solve(vector<int>& seq, int res[])
 {
   int seq_idx = 0;
   node* root = build(seq, seq_idx);
   bfs(root, res, 500);
   output(res);
+  tree_free(root);
 }
