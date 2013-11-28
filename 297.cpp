@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 using namespace std;
 
@@ -53,16 +54,21 @@ struct counter
   {
     return a[idx];
   }
-  int sum()
+  int sum() const
   {
-      
+    int s = 0;
     for (int i = 0; i < max_len; i++)
+    {
+      if (value_get(i)) s++;
+    }
+    return s;
   }
 };
 
 ostream& operator<<(ostream& o, const counter& cnt)
 {
-  
+  o << cnt.sum();
+  return o;
 }
 node* bfs(counter& cnt, const char* str, int& move, int a, int b)
 {
