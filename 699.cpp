@@ -31,6 +31,50 @@ int main()
   return 0;
 }
 
+void output(int res[])
+{
+  int idx = 0;
+  while (res[idx++] == -1);
+  cout << 
+  for (; idx < 1000; idx++)
+  {
+    if (res[idx] == -1) break;
+    cout << res[idx];
+  }
+}
+struct node
+{
+  int value;
+  struct node* l, r;
+};
+node* build(vector<int>& seq, int& idx)
+{
+  if (idx >= seq.size())return NULL;
+  if (seq[idx] == -1){return NULL};
+  node* root = malloc(sizeof(*root));
+  assert(NULL != root);
+  root->value = seq[idx];
+  idx++;
+  root->l = build(seq, idx);
+  idx++;
+  root->r = build(seq, idx);
+  idx++;
+  return root;
+}
+void bfs(node* root, int res, int idx)
+{
+  if (res[idx] == -1)
+  {
+    res[idx] = root->value;
+  }
+  else
+  {
+    res[idx] += root->value;
+  }
+  bfs(root->l, res, idx-1);
+  bfs(root->r, res, idx+1);
+  return;
+}
 void solve(vector<int>& seq, int res[])
 {
   int seq_idx = 0;
