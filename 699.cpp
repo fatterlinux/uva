@@ -37,7 +37,7 @@ int main()
       {
         a2++;
       }
-      if (a1 +1 = a2)
+      if (a1 +1 == a2)
       {
         break;
       }
@@ -72,7 +72,7 @@ void output(int res[])
   }
   s << endl;
   s << endl;
-  cout << ss.c_str();
+  cout << s.str();
 }
 struct node
 {
