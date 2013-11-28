@@ -37,6 +37,7 @@ void output(int res[])
 {
   int idx = 0;
   while (res[idx++] == 0);
+  static int cnt = 1;
   cout << "Case " << cnt++ << ":" << endl;
   for (; idx < 1000; idx++)
   {
@@ -55,7 +56,7 @@ node* build(vector<int>& seq, int& idx)
 {
   if (idx >= seq.size())return NULL;
   if (seq[idx] == -1)return NULL;
-  node* root = malloc(sizeof(*root));
+  node* root =(node*) malloc(sizeof(*root));
   assert(NULL != root);
   root->value = seq[idx];
   idx++;
@@ -64,7 +65,7 @@ node* build(vector<int>& seq, int& idx)
   root->r = build(seq, idx);
   return root;
 }
-void bfs(node* root, int res, int idx)
+void bfs(node* root, int res[], int idx)
 {
   if (root)
   {
@@ -78,6 +79,6 @@ void solve(vector<int>& seq, int res[])
 {
   int seq_idx = 0;
   node* root = build(seq, seq_idx);
-  bfs(root, res);
+  bfs(root, res, 500);
   output(res);
 }
