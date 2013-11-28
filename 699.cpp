@@ -7,18 +7,19 @@
 #include <sstream>
 
 using namespace std;
-//这题Case 2 和Case 3 是一组数据，注意了
+//Case 2 和Case 3 是一组数据，注意了
+//好吧，这里一个case可以换行的
 void solve(vector<int>& seq, int res[]);
 int main()
 {
   while (1)
   {
     vector<int> seq;
-    string s;
-    getline(cin , s);
-    stringstream ss(s);
+    //string s;
+    //getline(cin , s);
+    //stringstream ss(s);
     int e;
-    if (ss >> e)
+    if (cin >> e)
     {
       if (e == -1)
       {
@@ -26,9 +27,20 @@ int main()
       }
     }
     seq.push_back(e);
-    while (ss >> e)
+    int a1 = 1;
+    int a2 = 0;
+    while (cin >> e)
     {
       seq.push_back(e);
+      if (e >0) a1++;
+      else
+      {
+        a2++;
+      }
+      if (a1 +1 = a2)
+      {
+        break;
+      }
     }
     int res[1000];
     memset(res, 0, sizeof(res));
@@ -44,6 +56,7 @@ void output(int res[])
   static int cnt = 1;
   cout << "Case " << cnt++ << ":" << endl;
   bool first = true;
+  stringstream s;
   for (; idx < 1000; idx++)
   {
     if (res[idx] == 0) break;
@@ -53,12 +66,13 @@ void output(int res[])
     }
     else
     {
-      cout <<" ";
+      s <<" ";
     }
-    cout << res[idx];
+    s << res[idx];
   }
-  cout << endl;
-  cout << endl;
+  s << endl;
+  s << endl;
+  cout << ss.c_str();
 }
 struct node
 {
