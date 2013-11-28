@@ -40,7 +40,7 @@ int main()
 void output(int res[])
 {
   int idx = 0;
-  while (res[idx++] == 0);
+  while (res[idx] == 0) idx++;
   static int cnt = 1;
   cout << "Case " << cnt++ << ":" << endl;
   bool first = true;
