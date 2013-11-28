@@ -46,6 +46,7 @@ void output(int res[])
   bool first = true;
   for (; idx < 1000; idx++)
   {
+    if (res[idx] == 0) break;
     if (first)
     {
       first = false;
@@ -54,7 +55,6 @@ void output(int res[])
     {
       cout <<" ";
     }
-    if (res[idx] == 0) break;
     cout << res[idx];
   }
   cout << endl;
