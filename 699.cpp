@@ -7,7 +7,7 @@
 #include <sstream>
 
 using namespace std;
-
+//这题Case 2 和Case 3 是一组数据，注意了
 void solve(vector<int>& seq, int res[]);
 int main()
 {
