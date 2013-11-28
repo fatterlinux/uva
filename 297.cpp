@@ -79,10 +79,10 @@ node* bfs(counter& cnt, const char* str, int& move, int a, int b, node_pool& p)
     int mid = (a + b) >> 1;
     int m_l = (a + mid) >> 1;
     int m_r = (mid + b) >> 1;
-    root->child[0] = bfs(cnt, str, move, a, m_l);
-    root->child[1] = bfs(cnt, str, move, m_l+1, mid);
-    root->child[2] = bfs(cnt, str, move, mid+1, m_r);
-    root->child[3] = bfs(cnt, str, move, m_r+1, b);
+    root->child[0] = bfs(cnt, str, move, a, m_l, p);
+    root->child[1] = bfs(cnt, str, move, m_l+1, mid, p);
+    root->child[2] = bfs(cnt, str, move, mid+1, m_r, p);
+    root->child[3] = bfs(cnt, str, move, m_r+1, b, p);
   }
   else if (root->value_get() == 'f')
   {
