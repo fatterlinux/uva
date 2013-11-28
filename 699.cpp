@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <vector>
 #include <string.h>
+#include <stdlib.h>
+#include <assert.h>
 
 using namespace std;
 
@@ -35,22 +37,24 @@ void output(int res[])
 {
   int idx = 0;
   while (res[idx++] == 0);
-  cout << 
+  cout << "Case " << cnt++ << ":" << endl;
   for (; idx < 1000; idx++)
   {
     if (res[idx] == 0) break;
     cout << res[idx];
   }
+  cout << endl;
+  cout << endl;
 }
 struct node
 {
   int value;
-  struct node* l, r;
+  struct node *l, *r;
 };
 node* build(vector<int>& seq, int& idx)
 {
   if (idx >= seq.size())return NULL;
-  if (seq[idx] == -1){return NULL};
+  if (seq[idx] == -1)return NULL;
   node* root = malloc(sizeof(*root));
   assert(NULL != root);
   root->value = seq[idx];
