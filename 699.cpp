@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <sstream>
 
 using namespace std;
 
@@ -13,8 +14,11 @@ int main()
   while (1)
   {
     vector<int> seq;
+    string s;
+    getline(cin , s);
+    stringstream ss(s);
     int e;
-    if (cin >> e)
+    if (ss >> e)
     {
       if (e == -1)
       {
@@ -22,7 +26,7 @@ int main()
       }
     }
     seq.push_back(e);
-    while (cin >> e)
+    while (ss >> e)
     {
       seq.push_back(e);
     }
@@ -39,8 +43,17 @@ void output(int res[])
   while (res[idx++] == 0);
   static int cnt = 1;
   cout << "Case " << cnt++ << ":" << endl;
+  bool first = true;
   for (; idx < 1000; idx++)
   {
+    if (first)
+    {
+      first = false;
+    }
+    else
+    {
+      cout <<" ";
+    }
     if (res[idx] == 0) break;
     cout << res[idx];
   }
