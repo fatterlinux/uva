@@ -54,9 +54,10 @@ void output(int res[])
   int idx = 0;
   while (res[idx] == 0) idx++;
   static int cnt = 1;
-  cout << "Case " << cnt++ << ":" << endl;
-  bool first = true;
   stringstream s;
+  s << "Case " << cnt++ << ":" << endl;
+  bool first = true;
+
   for (; idx < 1000; idx++)
   {
     if (res[idx] == 0) break;
@@ -71,8 +72,19 @@ void output(int res[])
     s << res[idx];
   }
   s << endl;
-  s << endl;
   cout << s.str();
+  string ss(s.str());
+  int cnt  = 0;
+  for (int i = 0; i < ss.size(); i++)
+  {
+    if (cnt == 80)
+    {
+      cout << endl;
+      cnt = 0;
+    }
+    cout << ss[i];
+    cnt++;
+  }
 }
 struct node
 {
