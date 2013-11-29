@@ -8,7 +8,7 @@
 using namespace std;
 const int max_len = 120;
 void var_get(vector<char>& var, char s[], int* map);
-int sum_get(char* s, vector<int>& elm, int* map);
+int sum_get(char* s, deque<int>& elm, int* map);
 void output(int value, vector<char>& var, int* map);
 void filter_blank(char* s);
 deque<int> sum_elm;
