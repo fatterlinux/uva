@@ -64,6 +64,14 @@ int sum_get(char* s, deque<int>& sum_elm, int* map)
   assert(sum_elm.size() == 1);
   return sum_elm[0];
 }
+bool is_pre_double_oeprator(char* s, int idx)
+{
+  return ((s[i-1] == '+' && s[i-2] == '+') || (s[i-1] == '-' && s[i-2] == '-')); 
+}
+bool is_post_double_oeprator(char* s, int idx)
+{
+  return ((s[i+1] == '+' && s[i+2] == '+') || (s[i+1] == '-' && s[i+2] == '-')); 
+}
 deque<int> var_get(vector<char>& var, char* s, int* map)
 {
   deque<int>& v = sum_elm;
@@ -74,14 +82,21 @@ deque<int> var_get(vector<char>& var, char* s, int* map)
       var.push_back(s[i]);
       if (i >= 2 && is_pre_double_operator(s, i))
       {
+        if (s[i-1] == '+')
         map[s[i]-'a']++;
+        else
+        map[s[i]-'a']--;
         v.push_back(map[s[i] - 'a']);
         s[i-1] = s[i-2] = ' ';
       }
       else if ((i <= strlen(s) - 3) && is_post_double_operator(s, i))
       {
         v.push_back(map[s[i] - 'a']);
+        if (s[i+1] == '+')
         map[s[i]-'a']++;
+        else
+        map[s[i]-'a']--;
+        
         s[i+1] = s[i+2] = ' ';
       }
       else
