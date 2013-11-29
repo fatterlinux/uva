@@ -7,7 +7,7 @@
 
 using namespace std;
 const int max_len = 120;
-void var_get(vector<char>& var, char s[]);
+void var_get(vector<char>& var, char s[], int* map);
 int sum_get(char* s, vector<int>& elm, int* map);
 void output(int value, vector<char>& var, int* map);
 void filter_blank(char* s);
@@ -64,11 +64,11 @@ int sum_get(char* s, deque<int>& sum_elm, int* map)
   assert(sum_elm.size() == 1);
   return sum_elm[0];
 }
-bool is_pre_double_oeprator(char* s, int idx)
+bool is_pre_double_oeprator(char* s, int i)
 {
   return ((s[i-1] == '+' && s[i-2] == '+') || (s[i-1] == '-' && s[i-2] == '-')); 
 }
-bool is_post_double_oeprator(char* s, int idx)
+bool is_post_double_oeprator(char* s, int i)
 {
   return ((s[i+1] == '+' && s[i+2] == '+') || (s[i+1] == '-' && s[i+2] == '-')); 
 }
