@@ -15,6 +15,7 @@ int main()
   char s[max_len];
   while (gets(s))
   {
+    printf("Expression: %s", s);
     filter_blank(s);
     vector<char> var;
     vector<int> sum_elm;
@@ -29,9 +30,13 @@ int main()
   }
   return 0;
 }
-void output(int value, vector<char> var)
+void output(int value, vector<char> var, int* map)
 {
-  
+  printf("    %d\n", value);
+  for (int i = 0; i < var.size(); i++)
+  {
+    printf("    %c = %d\n", var[i], map[var[i]-'a']);
+  }
 }
 int sum_get(char* s, deque<int>& sum_elm)
 {
