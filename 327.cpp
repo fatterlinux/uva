@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <vector>
 #include <ctypes.h>
+#include <deque>
+#include <assert.h>
 
 using namespace std;
 const int max_len = 120;
-vector<int> var_get(vector<char>& var, char s[]);
+deque<int> var_get(vector<char>& var, char s[]);
 int sum_get(char* s, vector<int>& elm);
 void output(int value, vector<char>& var);
 void filter_blank(char* s);
@@ -27,10 +29,38 @@ int main()
   }
   return 0;
 }
-
-vector<int> var_get(vector<char>& var, char* s)
+void output(int value, vector<char> var)
 {
-  vector<int> v;
+  
+}
+int sum_get(char* s, deque<int>& sum_elm)
+{
+  
+  for (int i = 0; i < strlen(s); i++)
+  {
+    if (s[i] == '+')
+    {
+      int a = sum_elm[0];
+      int b = sum_elm[1];
+      sum_elm.pop_front();
+      sum_elm.pop_front();
+      sum_elm.push_front(a+b);
+    }
+    else if (s[i] == '-')
+    {
+      int a = sum_elm[0];
+      int b = sum_elm[1];
+      sum_elm.pop_front();
+      sum_elm.pop_front();
+      sum_elm.push_front(a-b);
+    }
+  }
+  assert(sum_elm.size() == 1);
+  return sum_elm[0];
+}
+deque<int> var_get(vector<char>& var, char* s)
+{
+  deque<int> v;
   for (int i = 0; i < strlen(s); i++)
   {
     if (islower(s[i]))
