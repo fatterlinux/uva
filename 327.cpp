@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <vector>
-#include <ctypes.h>
+#include <ctype.h>
 #include <deque>
 #include <assert.h>
+#include <string.h>
 
 using namespace std;
 const int max_len = 120;
-deque<int> var_get(vector<char>& var, char s[]);
-int sum_get(char* s, vector<int>& elm);
-void output(int value, vector<char>& var);
+void var_get(vector<char>& var, char s[]);
+int sum_get(char* s, vector<int>& elm, int* map);
+void output(int value, vector<char>& var, int* map);
 void filter_blank(char* s);
+deque<int> sum_elm;
 int main()
 {
   char s[max_len];
@@ -18,15 +20,14 @@ int main()
     printf("Expression: %s", s);
     filter_blank(s);
     vector<char> var;
-    vector<int> sum_elm;
     int map[26];
     for (int i = 0; i < 26; i++)
     {
       map[i] = i + 1;
     }
-    sum_elm = var_get(var, s);
-    int value = sum_get(s, sum_elm);
-    output(value, var);
+    var_get(var, s, map);
+    int value = sum_get(s, sum_elm, map);
+    output(value, var, map);
   }
   return 0;
 }
@@ -38,7 +39,7 @@ void output(int value, vector<char> var, int* map)
     printf("    %c = %d\n", var[i], map[var[i]-'a']);
   }
 }
-int sum_get(char* s, deque<int>& sum_elm)
+int sum_get(char* s, deque<int>& sum_elm, int* map)
 {
   
   for (int i = 0; i < strlen(s); i++)
@@ -63,9 +64,9 @@ int sum_get(char* s, deque<int>& sum_elm)
   assert(sum_elm.size() == 1);
   return sum_elm[0];
 }
-deque<int> var_get(vector<char>& var, char* s)
+deque<int> var_get(vector<char>& var, char* s, int* map)
 {
-  deque<int> v;
+  deque<int>& v = sum_elm;
   for (int i = 0; i < strlen(s); i++)
   {
     if (islower(s[i]))
@@ -89,7 +90,7 @@ deque<int> var_get(vector<char>& var, char* s)
       }
     }
   }
-  return v;
+  return ;
 }
 void filter_blank(char* s)
 {
