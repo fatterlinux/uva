@@ -30,7 +30,18 @@ int main()
 
 vector<int> var_get(vector<char>& var, char* s)
 {
-  
+  for (int i = 0; i < strlen(s); i++)
+  {
+    if (islower(s[i]))
+    {
+      if (i >= 2 && is_pre_double_operator(s, i))
+      {}
+      else if ((i <= strlen(s) - 3) && is_post_double_operator(s, i))
+      {}
+      else
+      {}
+    }
+  }
 }
 void filter_blank(char* s)
 {
