@@ -17,7 +17,7 @@ int main()
   char s[max_len];
   while (gets(s))
   {
-    printf("Expression: %s", s);
+    printf("Expression: %s\n", s);
     filter_blank(s);
     vector<char> var;
     int map[26];
@@ -25,6 +25,7 @@ int main()
     {
       map[i] = i + 1;
     }
+    while (sum_elm.size()) sum_elm.pop_back();
     var_get(var, s, map);
     int value = sum_get(s, sum_elm, map);
     output(value, var, map);
@@ -33,7 +34,7 @@ int main()
 }
 void output(int value, vector<char>& var, int* map)
 {
-  printf("    %d\n", value);
+  printf("    value = %d\n", value);
   for (int i = 0; i < var.size(); i++)
   {
     printf("    %c = %d\n", var[i], map[var[i]-'a']);
