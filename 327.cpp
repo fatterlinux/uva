@@ -64,15 +64,15 @@ int sum_get(char* s, deque<int>& sum_elm, int* map)
   assert(sum_elm.size() == 1);
   return sum_elm[0];
 }
-bool is_pre_double_oeprator(char* s, int i)
+bool is_pre_double_operator(char* s, int i)
 {
   return ((s[i-1] == '+' && s[i-2] == '+') || (s[i-1] == '-' && s[i-2] == '-')); 
 }
-bool is_post_double_oeprator(char* s, int i)
+bool is_post_double_operator(char* s, int i)
 {
   return ((s[i+1] == '+' && s[i+2] == '+') || (s[i+1] == '-' && s[i+2] == '-')); 
 }
-deque<int> var_get(vector<char>& var, char* s, int* map)
+void var_get(vector<char>& var, char* s, int* map)
 {
   deque<int>& v = sum_elm;
   for (int i = 0; i < strlen(s); i++)
