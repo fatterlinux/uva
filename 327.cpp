@@ -31,7 +31,7 @@ int main()
   }
   return 0;
 }
-void output(int value, vector<char> var, int* map)
+void output(int value, vector<char>& var, int* map)
 {
   printf("    %d\n", value);
   for (int i = 0; i < var.size(); i++)
