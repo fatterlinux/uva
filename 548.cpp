@@ -1,4 +1,7 @@
 #include <stdion.h>
+#include <sstream>
+#include <string>
+#include <string.h>
 
 using namespace std;
 
