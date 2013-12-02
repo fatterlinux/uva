@@ -98,7 +98,7 @@ void output()
       min_idx = i;
     }
   }
-  printf("%d", min_idx);
+  printf("%d\n", path_leaf[min_idx]);
 }
 void init()
 {
@@ -125,9 +125,10 @@ int main()
       in[i++] = elm;
     }
     getline(cin, s);
-    ss << s;
+    stringstream ss2;
+    ss2 << s;
     i = 0;
-    while (ss >> elm)
+    while (ss2 >> elm)
     {
       post[i++] = elm;
     }
