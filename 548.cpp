@@ -59,8 +59,8 @@ node* build_tree(int in[], int post[], int len)
   root->r = build_tree(in + i + 1, post + i, len - i - 1);
   return root;
 }
-int path[max_len];
-int path_leaf[max_len];
+int path[max_size];
+int path_leaf[max_size];
 int path_idx;
 void dfs(node* root, int sum)
 {
