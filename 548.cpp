@@ -1,4 +1,4 @@
-#include <stdion.h>
+#include <stdio.h>
 #include <sstream>
 #include <string>
 #include <string.h>
@@ -32,7 +32,7 @@ struct node_pool
   {
     idx = 0;
   }
-  void alloc()
+  node* alloc()
   {
     return &p[idx++];
   }
