@@ -46,8 +46,8 @@ struct node_pool
   }
 };
 node_pool p;
-int in[max_len];
-int post[max_len];
+int in[max_size];
+int post[max_size];
 node* build_tree(int in[], int post[], int len)
 {
   if (0 == len) return NULL;
@@ -81,7 +81,7 @@ void dfs(node* root, int sum)
   }
   return;
 }
-void out_put()
+void output()
 {
   int min = path[0];
   int min_idx = 0;
@@ -132,7 +132,7 @@ int main()
       post[i++] = elm;
     }
     node* root = build_tree(in, post, sizeof(in)/sizeof(in[0]));
-    dfs(root);
+    dfs(root, 0);
     output();
   }
   return 0;
