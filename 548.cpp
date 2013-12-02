@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 #include <string.h>
+#include <iostream>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ struct node
     data = 0;
     l = r = NULL;
   }
-  reset()
+  void reset()
   {
     data = 0;
     l = r = NULL;
@@ -31,11 +32,11 @@ struct node_pool
   {
     idx = 0;
   }
-  alloc()
+  void alloc()
   {
     return &p[idx++];
   }
-  reset()
+  void reset()
   {
     idx = 0;
     for (int i = 0; i < max_size; i++)
