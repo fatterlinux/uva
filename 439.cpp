@@ -17,6 +17,14 @@ struct node
     return (x >= 1 && x <= 8 && y >= 1 && y <=8);
   }
 };
+const int max_len = 10;
+bool visit[max_len][max_len];
+int mark[max_len][max_len];
+void init()
+{
+  memset(visit, 0, sizeof(visit));
+  memset(mark, 0, sizeof(mark));
+}
 void bfs(const node& a, const node& b);
 int main()
 {
@@ -30,6 +38,7 @@ int main()
     a.y = a_char[1];
     b.x = b_char[0];
     b.y = b_char[1];
+    init();
     bfs(a, b);
     printf("To get from %s to %s takes %d knight moves.\n", a_char, b_char, mark[b.x][b.y]);
   }
