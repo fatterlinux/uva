@@ -19,7 +19,18 @@ void init()
 
 void topologic(int n)
 {
-  
+  queue<int> q;
+  for (int i = 1; i <= n; i++)
+  {
+    if(indegree[i] == 0) q.push(i);
+  }
+  while (!q.empty())
+  {
+    int t = q.front();
+    q.pop();
+    res[]
+    for (int i = 1; i <)
+  }
 }
 int main()
 {
