@@ -48,3 +48,27 @@ void dfs(int i, int j)
     if (map[i + dir[k][0]][j + dir[k][1]]) dfs(i + dir[k][0], j + dir[k][1]);
   }
 }
+void bfs(int i, int j)
+{
+  queue<node> Q;
+  node temp;
+  temp.i = i;
+  temp.j = j;
+  map[i][j] = 0;
+  Q.push(temp);
+  
+  while (!Q.empty())
+  {
+    node t = Q.front();
+    Q.pop();
+    for (int k = 0; k < 8; k++)
+    {
+      if (map[t.i + dir[k][0]][t.j + dir[k][1]])
+      {
+        node tt;
+        tt.i = t.i + dir[k][0];
+        tt.j = t.j + dir[k][1];
+      }
+    }
+  }
+}
