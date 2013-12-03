@@ -6,7 +6,7 @@ void dfs(int i, int j);
 int main()
 {
   int m, n;
-  while (scanf(%d %d%*c, &m, &n) && m)
+  while (scanf("%d %d%*c", &m, &n) && m)
   {
     memset(map, 0, sizeof(map));
     int cnt = 0;
@@ -34,6 +34,7 @@ int main()
         }
       }
     }
+    printf("%d\n", cnt);
   }
   return 0;
 }
