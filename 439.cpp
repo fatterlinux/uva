@@ -35,10 +35,10 @@ int main()
     node a, b;
     const char* a_char = a_str.c_str();
     const char* b_char = b_str.c_str();
-    a.x = a_char[0];
-    a.y = a_char[1];
-    b.x = b_char[0];
-    b.y = b_char[1];
+    a.x = a_char[0] - 'a' + 1;
+    a.y = a_char[1] - '0';
+    b.x = b_char[0] - 'a' + 1;
+    b.y = b_char[1] - '0';
     init();
     bfs(a, b);
     printf("To get from %s to %s takes %d knight moves.\n", a_char, b_char, mark[b.x][b.y]);
