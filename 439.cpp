@@ -2,15 +2,16 @@
 #include <string>
 #include <string.h>
 #include <queue>
+#include <stdio.h>
 
 using namespace std;
 
 struct node
 {
   int x, y;
-  bool operaotr==(const node& a) const
+  bool operator==(const node& a) const
   {
-    return (x==a.x && y==b.y);
+    return (x==a.x && y==a.y);
   }
   bool check() const 
   {
