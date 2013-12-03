@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <queue>
 
 int map[110][110];
 void dfs(int i, int j);
+void bfs(int i, int j);
 int main()
 {
   int m, n;
@@ -29,7 +31,8 @@ int main()
       {
         if (map[i][j])
         {
-          dfs(i, j);
+          //dfs(i, j);
+          bfs(i, j);
           cnt++;
         }
       }
@@ -48,9 +51,13 @@ void dfs(int i, int j)
     if (map[i + dir[k][0]][j + dir[k][1]]) dfs(i + dir[k][0], j + dir[k][1]);
   }
 }
+struct node
+{
+  int i, j;
+};
 void bfs(int i, int j)
 {
-  queue<node> Q;
+  std::queue<node> Q;
   node temp;
   temp.i = i;
   temp.j = j;
@@ -65,9 +72,11 @@ void bfs(int i, int j)
     {
       if (map[t.i + dir[k][0]][t.j + dir[k][1]])
       {
+        map[t.i + dir[k][0]][t.j + dir[k][1]] = 0;
         node tt;
         tt.i = t.i + dir[k][0];
         tt.j = t.j + dir[k][1];
+        Q.push(tt);
       }
     }
   }
