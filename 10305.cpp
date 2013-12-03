@@ -20,6 +20,7 @@ void init()
 void topologic(int n)
 {
   queue<int> q;
+  int cnt = 0;
   for (int i = 1; i <= n; i++)
   {
     if(indegree[i] == 0) q.push(i);
@@ -28,9 +29,32 @@ void topologic(int n)
   {
     int t = q.front();
     q.pop();
-    res[]
-    for (int i = 1; i <)
+    res[cnt++] = t;
+    for (int i = 1; i <= n; i++)
+    {
+      if (edge[t][i])
+      {
+        if (--indegree[i] == 0)
+        {
+          q.push(i);
+        }
+      }
+    }
   }
+  bool first(true);
+  for (int i = 0; i < cnt; i++)
+  {
+    if (first)
+    {
+      first = false;
+    }
+    else
+    {
+      printf(" ");
+    }
+    printf("%d", res[i]);
+  }
+  printf("\n");
 }
 int main()
 {
