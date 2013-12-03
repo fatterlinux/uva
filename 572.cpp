@@ -38,9 +38,12 @@ int main()
   return 0;
 }
 
-const int dir[][2] = {()};
+const int dir[8][2] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}}; 
 void dfs(int i, int j)
 {
   map[i][j] = 0;
-  if (map[])
+  for (int k = 0; k < 8; k++)
+  {
+    if (map[i + dir[k][0]][j + dir[k][1]]) dfs(i + dir[k][0], j + dir[k][1]);
+  }
 }
