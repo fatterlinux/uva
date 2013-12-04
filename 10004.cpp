@@ -12,7 +12,7 @@ const int max_len = 210;
 bool visit[max_len];
 bool color_visit[max_len];
 int edge[max_len][max_len];
-color_enm color[max_len];
+color_enum color[max_len];
 void init()
 {
   memset(visit, 0, sizeof(visit));
@@ -46,7 +46,7 @@ bool dfs(int idx)
   visit[idx] = true;
   for (int i = 0; i < max_len; i++)
   {
-    if (!visit[i])
+    if (edge[idx][i] && !visit[i])
     {
       visit[i] = true;
       if (color[i] == color[idx]) return false;
