@@ -42,6 +42,8 @@ void input(int& cnt)
     cnt++;
   }
 }
+const int dir[8][2] = {{-1, 0}, {0, -1},
+                        {0, 1},{1, 0},{-1, -1},{-1, 1},{1, 1},{1, -1}};
 void dfs(int m, int n, int cnt)
 {
   visit[m][n] = true;
