@@ -49,7 +49,12 @@ void dfs(int m, int n, int cnt)
   visit[m][n] = true;
   if (maze[m][n] == 'X') return;
   if (maze[m][n] == ' ' || maze[m][n] == '*') maze[m][n] = '#';
-  
+  for (int i = 0; i < 8; i++)
+  {
+    int x = m + dir[i][0];
+    int y = n + dir[i][1];
+    if (!visit[x][y]) dfs(x, y);
+  }
 }
 void solve(int cnt)
 {
