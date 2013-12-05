@@ -5,14 +5,15 @@
 using namespace std;
 
 void init();
-void input();
-void solve();
-void output();
+void input(int& cnt);
+void solve(int cnt);
+void output(int cnt);
 
 int main()
 {
   int n;
-  cin >> n;
+  //cin >> n;  WA 读入整数，遇到\n会停止，下次gets会多一行空行
+  scanf("%d%*c", &n);
   while (n--)
   {
     int cnt = 0;
@@ -48,7 +49,8 @@ const int dir[8][2] = {{-1, 0}, {0, -1},
 void dfs(int m, int n)
 {
   visit[m][n] = true;
-  if (maze[m][n] == 'X') return;
+  //if (maze[m][n] == 'X') return;
+  if (maze[m][n] != ' ' && maze[m][n] != '*' && maze[m][n] != '#') return;  
   if (maze[m][n] == ' ' || maze[m][n] == '*') maze[m][n] = '#';
   for (int i = 0; i < 8; i++)
   {
@@ -63,7 +65,7 @@ void solve(int cnt)
   {
     for (int j = 0; j < strlen(maze[i]); j++)
     {
-      if (maze[i][j] == '*' && visit[i][j])
+      if (maze[i][j] == '*' && !visit[i][j])
       {
         dfs(i, j);
       }
@@ -77,5 +79,5 @@ void output(int cnt)
   {
     printf("%s\n", maze[i]);
   }
-  printf("\n");
+  //printf("\n");  WA
 }
