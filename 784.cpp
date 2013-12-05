@@ -15,10 +15,11 @@ int main()
   cin >> n;
   while (n--)
   {
+    int cnt = 0;
     init();
-    input();
-    solve();
-    output();
+    input(cnt);
+    solve(cnt);
+    output(cnt+1);
   }
   return 0;
 }
@@ -44,7 +45,7 @@ void input(int& cnt)
 }
 const int dir[8][2] = {{-1, 0}, {0, -1},
                         {0, 1},{1, 0},{-1, -1},{-1, 1},{1, 1},{1, -1}};
-void dfs(int m, int n, int cnt)
+void dfs(int m, int n)
 {
   visit[m][n] = true;
   if (maze[m][n] == 'X') return;
@@ -64,8 +65,17 @@ void solve(int cnt)
     {
       if (maze[i][j] == '*' && visit[i][j])
       {
-        dfs(i, j, cnt);
+        dfs(i, j);
       }
     }
   }
+}
+
+void output(int cnt)
+{
+  for (int i = 0; i < cnt; i++)
+  {
+    printf("%s\n", maze[i]);
+  }
+  printf("\n");
 }
