@@ -18,7 +18,7 @@ void dfs(int idx, int n)
   visit[idx] = true;
   for (int i = 0; i < n; i++)
   {
-    if (!visit[idx] && edge[idx][i])
+    if (!visit[i] && edge[idx][i])
     {
       dfs(i, n);
     }
