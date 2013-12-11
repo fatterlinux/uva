@@ -38,18 +38,9 @@ void init(int* ans, int n)
 }
 void output(int* ans, int n)
 {
-  bool first(true);
   for (int i = 0; i < n; i++)
   {
-    if (first)
-    {
-      first = false;
-    }
-    else
-    {
-      printf(" ");
-    }
-    printf("%d", ans[i]);
+    printf(" %d", ans[i]);
   }
   printf("\n");
 }
@@ -60,6 +51,7 @@ int main()
   {
     reset();
     init(ans, n);
+    printf("%d:", n);
     solve(ans, 0, n - 1);
     output(ans, n);
   }
