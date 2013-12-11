@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 const int max_len = 10010;
 int ans[max_len];
