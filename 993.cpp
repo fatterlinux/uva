@@ -34,7 +34,7 @@ int main()
     }
     else
     {
-      sort(v.begin, v.end());
+      sort(v.begin(), v.end());
       for (int i = 0; i < v.size(); i++)
       {
         printf("%d", v[i]);
