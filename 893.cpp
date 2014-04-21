@@ -11,15 +11,15 @@ class calc_date
   int m_n, m_day, m_month, m_year;
   int days_from_zero_date(int day, int month, int year);
   void date_from_zero_date(int n);
-  int days_for_year(y);
-  int days_for_month(m, y);
+  int days_for_year(int y);
+  int days_for_month(int m, int y);
   bool is_leap(int y);
 };
 
 bool calc_date::is_leap(int y)
 {
-  if (y % 4 && y % 100 != 0) return ture;
-  else if (y % 400 == 0) return ture;
+  if (y % 4 && y % 100 != 0) return true;
+  else if (y % 400 == 0) return true;
   else return false;
 }
 int calc_date::days_for_year(int y)
@@ -28,12 +28,12 @@ int calc_date::days_for_year(int y)
 }
 int calc_date::days_for_month(int m, int y)
 {
-  static int m[2][13] = 
+  static int m_month[2][13] = 
   {
     {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
     {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
   };
-  return m[is_leap(y)][m];
+  return m_month[is_leap(y)][m];
 }
 void calc_date::date_show()
 {
