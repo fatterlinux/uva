@@ -9,7 +9,7 @@ class calc_date
   void date_show();
   private:
   int m_n, m_day, m_month, m_year;
-  int days_from_zero_date(int day, int month, int year);
+  int days_from_zero_date();
   void date_from_zero_date(int n);
   int days_for_year(int y);
   int days_for_month(int m, int y);
@@ -18,7 +18,7 @@ class calc_date
 
 bool calc_date::is_leap(int y)
 {
-  if (y % 4 && y % 100 != 0) return true;
+  if (y % 4 == 0 && y % 100 != 0) return true;
   else if (y % 400 == 0) return true;
   else return false;
 }
@@ -35,17 +35,13 @@ int calc_date::days_for_month(int m, int y)
   };
   return m_month[is_leap(y)][m];
 }
-void calc_date::date_show()
-{
-  int days = days_from_zero_date(m_day, m_month, m_year);
-  date_from_zero_date(days);
-}
 
-void cacl_date::date_show()
+
+void calc_date::date_show()
 {
   date_from_zero_date(days_from_zero_date());
 }
-int cacl_date::days_from_zero_date()
+int calc_date::days_from_zero_date()
 {
   int y(1998), m(1), d(1);
   int days(m_n);
@@ -70,9 +66,9 @@ void calc_date::date_from_zero_date(int n)
     n -= days_for_year(y);
     y++;
   }
-  while (n >= days_for_month(m))
+  while (n >= days_for_month(m, y))
   {
-    n -= days_for_year(m);
+    n -= days_for_month(m, y);
     m++;
   }
   d += n;
