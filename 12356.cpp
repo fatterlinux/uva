@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <iostream>
 using namespace std;
-static bool a[10001];
+static bool a[100001];
 
 int main()
 {
@@ -28,7 +29,7 @@ int main()
           break;
         }
       }
-      for (int j = r + 1; j <= boddies; j++)
+      for (int j = r + 1; j <= buddies; j++)
       {
         if (a[j])
         {
