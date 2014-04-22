@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdib.h>//abs
+#include <stdlib.h>//abs
 #include <string.h>
 
 #define max_n 3001
