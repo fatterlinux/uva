@@ -18,7 +18,7 @@ int main()
       {
         string s;
         getline(cin, s);
-        unsigned char c;
+        unsigned char c;//ascii可能255，不能用char索引；另外数组索引时区分正负数的，不会转化成整数
         int v;
         scanf("%c %d", &c, &v);
         ascii[c] = v;
@@ -34,7 +34,7 @@ int main()
         int size = s.size();
         for (int i = 0; i < size; i++)
         {
-          sum += ascii[(unsigned char)s.at(i)];
+          sum += ascii[(unsigned char)s.at(i)];//如果字符超过128，这里char会变成负数，索引负数指向的位置有问题
         }
       }
       printf("%.2lf$\n", sum / 100);
