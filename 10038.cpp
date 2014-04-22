@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdib.h>//abs
 
 #define max_n 3001
 bool map[max_n];
@@ -17,7 +17,7 @@ int main()
     }
     for (int i = 1; i < n; i++)
     {
-      long long t = abs(a[i-1], a[i]);
+      long long t = abs(a[i-1]-a[i]);
       if (t < (long long)n) map[t] = true;
     }
     bool flag = true;
@@ -35,7 +35,7 @@ int main()
     }
     else
     {
-      printf("Not jolly");
+      printf("Not jolly\n");
     }
   }
   return 0;
