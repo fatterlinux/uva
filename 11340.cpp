@@ -7,7 +7,7 @@ static int ascii[256];
 
 int main()
 {
-    int tets_case;
+    int test_case;
     cin >> test_case;
     while (test_case--)
     {
@@ -18,7 +18,7 @@ int main()
       {
         string s;
         getline(cin, s);
-        char c;
+        unsigned char c;
         int v;
         cin >> c >> v;
         ascii[c] = v;
@@ -37,7 +37,7 @@ int main()
           sum += ascii[s.at(i)];
         }
       }
-      printf("%.3lf$\n", sum / 100);
+      printf("%.2lf$\n", sum / 100);
     }
     return 0;
 }
