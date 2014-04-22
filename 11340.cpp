@@ -20,7 +20,7 @@ int main()
         getline(cin, s);
         unsigned char c;
         int v;
-        cin >> c >> v;
+        scanf("%c %d", &c, &v);
         ascii[c] = v;
       }
       int lines;
@@ -34,7 +34,7 @@ int main()
         int size = s.size();
         for (int i = 0; i < size; i++)
         {
-          sum += ascii[s.at(i)];
+          sum += ascii[(unsigned char)s.at(i)];
         }
       }
       printf("%.2lf$\n", sum / 100);
