@@ -29,7 +29,7 @@ int main()
         R.push(car_len);
       }
     }
-    int cross_times;
+    int cross_times = 0;
     while (1)
     {
       int l = length;
@@ -40,6 +40,7 @@ int main()
         L.pop();
       }
       cross_times++;
+      if (L.empty() && R.empty()) break;
       l = length;
       while (!R.empty() && R.front() <= l)
       {
