@@ -37,7 +37,7 @@ int main()
         L.pop();
         max_size--;
       }
-      if (max_size == n)
+      if (max_size == n && R.front() > time)
       {
         time = R.front();
       }
@@ -49,7 +49,7 @@ int main()
         R.pop();
         max_size--;
       }
-      if (max_size == n)
+      if (max_size == n && L.front > time)
       {
         time = L.front();
       }
