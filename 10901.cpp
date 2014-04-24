@@ -2,12 +2,17 @@
 #include <queue>
 #include <string>
 #include <assert.h>
+#include <stdio.h>
 
 using namespace std;
 
 static int run(queue<int>& q, queue<int>& other, int& time, int t, int n);
 int main()
 {
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    freopen("out.txt", "w", stdout);
+#endif
   int test_case;
   cin >> test_case;
   while (test_case--)
@@ -46,10 +51,10 @@ int main()
   return 0;
 }
 
-static int run(queue<int> q, queue<int> other, int& time, int t, int n)
+static int run(queue<int>& q, queue<int>& other, int& time, int t, int n)
 {
   int max_size = n;
-  while (!.empty() && q.front() <= t && max_size > 0)
+  while (!q.empty() && q.front() <= time && max_size > 0)
   {
     cout << time + t << endl;
     q.pop();
@@ -58,6 +63,16 @@ static int run(queue<int> q, queue<int> other, int& time, int t, int n)
   if (max_size != n)
   {
     time += t;
+    return 1;
+  }
+  else if (!q.empty() && other.empty())
+  {
+    time = q.front();
+    return -1;
+  }
+  else if (q.empty() && !other.empty())
+  {
+    time = t + other.empty();
     return 1;
   }
   else //说明本岸边没有车
