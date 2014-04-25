@@ -65,37 +65,32 @@ static int run(queue<int>& q, queue<int>& other, int& time, int t, int n)
     time += t;
     return 1;
   }
-  else if (!q.empty() && other.empty())
+  if (!other.empty() && other.front() <= time)
   {
-    time = q.front();
-    return -1;
-  }
-  else if (q.empty() && !other.empty())
-  {
-    time = t + other.empty();
-    return 1;
-  }
-  else //说明本岸边没有车
-  {
-    if (other.front() <= t)
-    {
-      time += t;
+      time + t;
       return 1;
-    }
-    else if (q.front() <= other.front())
-    {
+  }
+  if (!q.empty() && other.empty())
+  {
       time = q.front();
       return -1;
-    }
-    else if (q.front() > other.front())
-    {
+  }
+  if (q.empty() && !other.empty())
+  {
       time = t + other.front();
       return 1;
-    }
-    else
-    {
-      assert(0);
-    }
-    return 0;
+  }
+  if (!q.empty() && !other.empty())
+  {
+      if (q.front() <= other.front())
+      {
+          time = q.front();
+          return -1;
+      }
+      else
+      {
+          time = t + other.front();
+          return 1;
+      }
   }
 }
