@@ -80,7 +80,7 @@ int main()
     {
       if (contestants[i].submission)
       {
-        printf("%d %d %d\n", contestants[i].index, contestants[i].solved, contestants[i].time);
+        printf("%d %d %d\n", contestants[i].index, contestants[i].solved_num, contestants[i].time);
       }
       else
       {
