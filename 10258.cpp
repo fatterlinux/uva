@@ -29,6 +29,7 @@ int main()
   cin >> test_case;
   string s;
   getline(cin, s);
+  getline(cin, s);
   bool first = true;
   while (test_case--)
   {
