@@ -82,10 +82,6 @@ int main()
       {
         printf("%d %d %d\n", contestants[i].index, contestants[i].solved_num, contestants[i].time);
       }
-      else
-      {
-        break;
-      }
     }
   }
   return 0;
