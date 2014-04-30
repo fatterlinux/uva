@@ -21,6 +21,7 @@ typedef struct
 }contest_record;
 static contest_record contestants[CONTESTANT];
 
+static bool comp_func(const contest_record& a, const contest_record& b);
 int main()
 {
   int test_case;
@@ -85,4 +86,12 @@ int main()
       }
     }
   }
+  return 0;
+}
+static bool comp_func(const contest_record& a, const contest_record& b)
+{
+  if (a.solved_num > b.solved_num) return true;
+  else if (a.solved_num == b.solved_num && a.time < b.time) return true;
+  else if (a.solved_num == b.solved_num && a.time == b.time && a.index < b.index) return true;
+  else return false;
 }
