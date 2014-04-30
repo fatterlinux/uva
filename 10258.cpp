@@ -2,7 +2,8 @@
 #include <string.h>
 #include <algorithm>
 #include <string>
-#include <sstring>
+#include <sstream>
+#include <stdio.h>
 #define CONTESTANT  101
 #define PROBLEM     10
 using namespace std;
@@ -38,7 +39,7 @@ int main()
     {
       contestants[i].index = i;
     }
-    while (get_line(cin, s) && !s.empty())
+    while (getline(cin, s) && !s.empty())
     {
       int n, s_i, s_t;
       char s_s;
