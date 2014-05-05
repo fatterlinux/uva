@@ -20,8 +20,11 @@ int square_equal(char** a, int a_n, char** b, int b_n)
                     if (a[i+k][m+j] != b[k][j])
                     {
                        match = false; 
+                       break;
                     }
+                
                 }
+                if (!match) break;
             }
             if (match) cnt++;
         }
@@ -119,7 +122,7 @@ int main()
         int cnt3 = square_equal(d, N, b, n);
         char** e = rotated90(d, N);
         int cnt4 = square_equal(e, N, b, n);
-        printf("%d %d %d %d\n", cnt1, cnt2, cnt3, cnt4);
+        printf("%d %d %d %d\n", cnt1, cnt4, cnt3, cnt2);
         square_dtor(a, N);
         square_dtor(b, n);
         square_dtor(c, N);
