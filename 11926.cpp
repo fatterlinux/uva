@@ -33,6 +33,7 @@ main()
                 }
                 else
                 {
+                    //cout << i << endl;
                     b.set(i);
                 }
                 if (found_flag) break;
@@ -46,24 +47,25 @@ main()
             int t_range = t_end - t_start;
             while (t_start < time_range)
             {
-                int i = t_start;
+                int i_s = t_start;
+                int i_e = t_start + t_range;
                 int range = t_start + t_range;
                 //cout << "t_start: " << t_start << " t_end: " << t_end << endl;
                 while (t_start <= range && t_start < time_range)
                 {
-                    //cout << t_start << endl;
-                    if (b.test(t_start) && i != t_start && i != range)
+                    //cout << t_start << " " << i << endl;
+                    if (b.test(t_start) && i_s != t_start && i_e != t_start)
                     {
                         found_flag = true;
                         //cout << "interval conflict " << t_start << endl;
                     }
                     else
                     {
+                        //cout << t_start << endl;
                         b.set(t_start);
                     }
                     if (found_flag) break;
                     t_start++;
-                    i++;
                 }
                 if (found_flag) break;
                 t_start += interval;
