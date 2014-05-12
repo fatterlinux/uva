@@ -62,7 +62,7 @@ main()
                 t_end = t_start + t_range;
                 t_end = min(t_end, time_range-1);
                 if (!b.test(i_s)) c.set(i_s);
-                i f(t_start + t_range < time_range && !b.test(t_end)) c.set(t_end);
+                if(t_start + t_range < time_range && !b.test(t_end)) c.set(t_end);
                 //cout << "t_start: " << t_start << " t_end: " << t_end << endl;
                 while (t_start <= t_end )
                 {
