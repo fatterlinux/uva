@@ -21,7 +21,7 @@ int main()
       cin >> snowflake;
       b.set(snowflake);
     }
-    cout << b.count << endl;
+    cout << b.count() << endl;
   }
   return 0;
 }
