@@ -45,16 +45,17 @@ main()
             cin >> t_start >> t_end >> interval;
             if (found_flag) continue;
             int t_range = t_end - t_start;
+            int i_s;
             while (t_start < time_range)
             {
-                int i_s = t_start;
-                int i_e = t_start + t_range;
-                int range = t_start + t_range;
+                i_s = t_start;
+                t_end = t_start + t_range;
+                t_end = min(t_end, time_range-1);
                 //cout << "t_start: " << t_start << " t_end: " << t_end << endl;
-                while (t_start <= range && t_start < time_range)
+                while (t_start <= t_end )
                 {
                     //cout << t_start << " " << i << endl;
-                    if (b.test(t_start) && i_s != t_start && i_e != t_start)
+                    if (b.test(t_start) && i_s != t_start && t_end != t_start)
                     {
                         found_flag = true;
                         //cout << "interval conflict " << t_start << endl;
@@ -68,7 +69,7 @@ main()
                     t_start++;
                 }
                 if (found_flag) break;
-                t_start += interval;
+                t_start = i_s + interval;
             }
         }
         if (found_flag) cout << "CONFLICT" << endl;
