@@ -30,7 +30,7 @@ main()
             if (!b.test(t_end)) c.set(t_end);
             for (int i = t_start; i < t_end + 1; i++)
             {
-                if (b.test(i) && !c.test(i))
+                if (b.test(i) && (!c.test(i) || (i != t_start && i != t_end)))
                 {
                     //cout << "conflict " << i << endl;
                     found_flag = true;
@@ -67,7 +67,7 @@ main()
                 while (t_start <= t_end )
                 {
                     //cout << t_start << " " << i << endl;
-                    if (b.test(t_start) && !c.test(t_start))
+                    if (b.test(t_start) && (!c.test(t_start)||i_s != t_start && t_end != t_start))
                     {
                         found_flag = true;
                         //cout << "interval conflict " << t_start << endl;
