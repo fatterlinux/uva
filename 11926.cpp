@@ -7,6 +7,7 @@ const int time_range = 1000001;
 using namespace std;
 
 bitset<time_range> b;
+bitset<time_range> c;
 int
 main()
 {
@@ -18,23 +19,32 @@ main()
     while (cin >> n >> m && !(n == 0 && m == 0))
     {
         b.reset();
+        c.reset();
         bool found_flag(false);
         while (n--)
         {
             int t_start, t_end;
             cin >> t_start >> t_end;
             if (found_flag) continue;
+            if (!b.test(t_start)) c.set(t_start);
+            if (!b.test(t_end)) c.set(t_end);
             for (int i = t_start; i < t_end + 1; i++)
             {
-                if (b.test(i) && i != t_start && i != t_end)
+                if (b.test(i) && !c.test(i))
                 {
                     //cout << "conflict " << i << endl;
                     found_flag = true;
                 }
-                else
+                else if (i != t_start && i != t_end)
                 {
                     //cout << i << endl;
                     b.set(i);
+                    c.reset(i);
+                }
+                else
+                {
+                    b.set(i);
+                    
                 }
                 if (found_flag) break;
             }
@@ -51,18 +61,25 @@ main()
                 i_s = t_start;
                 t_end = t_start + t_range;
                 t_end = min(t_end, time_range-1);
+                if (!b.test(i_s)) c.set(i_s);
+                i f(t_start + t_range < time_range && !b.test(t_end)) c.set(t_end);
                 //cout << "t_start: " << t_start << " t_end: " << t_end << endl;
                 while (t_start <= t_end )
                 {
                     //cout << t_start << " " << i << endl;
-                    if (b.test(t_start) && i_s != t_start && t_end != t_start)
+                    if (b.test(t_start) && !c.test(t_start))
                     {
                         found_flag = true;
                         //cout << "interval conflict " << t_start << endl;
                     }
-                    else
+                    else if (i_s != t_start && t_end != t_start)
                     {
                         //cout << t_start << endl;
+                        b.set(t_start);
+                        c.reset(t_start);
+                    }
+                    else
+                    {
                         b.set(t_start);
                     }
                     if (found_flag) break;
