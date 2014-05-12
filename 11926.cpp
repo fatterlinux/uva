@@ -46,7 +46,7 @@ main()
             int t_start, t_end, interval;
             cin >> t_start >> t_end >> interval;
             if (found_flag) continue;
-            for (int i = 0; t_start + i*interval < time_range; i++)
+            for (int i = 0; t_end + i*interval < time_range; i++)
             {
                 int s = t_start + i*interval;
                 int e = t_end + i*interval;
