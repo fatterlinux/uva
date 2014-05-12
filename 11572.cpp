@@ -1,29 +1,28 @@
 #include <iostream>
-#include <bitset>
+#include <vector>
+#include <algorithm>
 
-const int max_size = 1000000001;
 using namespace std;
-
-bitset<max_size> b;
 
 int main()
 {
-  int n;
-  cin >> n;
-  while (n--)
+  int test_case;
+  cin >> test_case;
+  while(test_case--)
   {
-    b.reset();
-    int m;
-    cin >> m;
-    while (m--)
+    int n;
+    cin >> n;
+    vector<int> v;
+    while (n--)
     {
       int snowflake;
       cin >> snowflake;
-      b.set(snowflake);
+      v.push_back(snowflake);
     }
-    cout << b.count() << endl;
+    sort(v.begin(), v.end());
+    vector<int>::iterator iter = unique(v.begin(), v.end());
+    v.erase(iter, v.end());
+    cout << v.size() << endl;
   }
-  return 0;
 }
-
 
