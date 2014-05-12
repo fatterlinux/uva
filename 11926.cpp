@@ -19,7 +19,6 @@ main()
     while (cin >> n >> m && !(n == 0 && m == 0))
     {
         b.reset();
-        c.reset();
         bool found_flag(false);
         while (n--)
         {
