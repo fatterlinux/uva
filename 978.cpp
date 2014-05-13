@@ -47,7 +47,7 @@ int main()
       for (int i = 0; i < fields; i++)
       {
         if (battle[i] > 0) sg.insert(battle[i]);
-        else if (battle[i] < 0) sl.insert(battle[i]);
+        else if (battle[i] < 0) sl.insert(-battle[i]);
       }
       
     }
