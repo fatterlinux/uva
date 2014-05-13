@@ -21,7 +21,7 @@ int main()
     {
       int t ;
       cin >>t;
-      if (s.find(t) != s.end())
+      if (s.count(t))
       {
         cnt++;
       }
