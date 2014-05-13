@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -9,14 +10,14 @@ int main()
   int n;
   while (cin >> n, n)
   {
-    map< <vector<int>, int > m;
+    map<vector<int>, int > m;
     int popularity = 0;
     while (n--)
     {
       vector<int> v(5);
       for (int i = 0; i < 5; i++)
       {
-        cin >> v(i);
+        cin >> v[i];
       }
       sort(v.begin(), v.end());
       m[v]++;
