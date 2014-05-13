@@ -21,13 +21,13 @@ int main()
     while (green--)
     {
       int t;
-      cin >> t;
+      scanf("%d", &t);
       sg.insert(t);
     }
     while (blue--)
     {
       int t;
-      cin >>t;
+      scanf("%d", &t);
       sl.insert(t);
     }
     //memset(battle, 0, sizeof(battle));
@@ -40,8 +40,12 @@ int main()
           int a = *sg.begin();
           int b = *sl.begin();
           battle[i] = a - b;
-          sg.erase(a);
-          sl.erase(b);
+          sg.erase(sg.begin());
+          sl.erase(sl.begin());
+        }
+        else
+        {
+          break;
         }
       }
       for (int i = 0; i < fields; i++)
@@ -62,7 +66,8 @@ int main()
       cout << "green wins" << endl;
       for (set<int>::iterator iter = sg.begin();iter != sg.end(); iter++)
       {
-        cout << *iter <<endl;
+        //cout << *iter <<endl;
+        printf("%d\n", *iter);
       }
     }
     else if (!sl.empty())
@@ -71,7 +76,8 @@ int main()
       cout << "blue wins" <<endl;
       for (set<int>::iterator iter = sl.begin();iter != sl.end(); iter++)
       {
-        cout << *iter << endl;
+        //cout << *iter << endl;
+        printf("%d\n", *iter);
       }
     }
     else assert(0);
