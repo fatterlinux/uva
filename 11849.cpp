@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <stdio.h>
 
 using namespace std;
 
@@ -13,14 +14,14 @@ int main()
     {
     int t;
     
-    cin >> t;
+    scanf("%d", &t);
     s.insert(t);
     }
     int cnt = 0;
     while (m--)
     {
       int t ;
-      cin >>t;
+      scanf("%d", &t);
       if (s.count(t))
       {
         cnt++;
