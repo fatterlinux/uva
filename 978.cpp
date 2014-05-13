@@ -1,5 +1,8 @@
 #include <iostream>
 #include <set>
+#include <stdio.h>
+#include <assert.h>
+#include <cstring>
 using namespace std;
 
 static int battle[100001];
