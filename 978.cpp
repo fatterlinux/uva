@@ -38,7 +38,7 @@ int main()
     //while (!sg.empty() && !sl.empty())
     while (!qg.empty() && !qb.empty())
     {
-      int tmp = min(qg.size(), qb.size());
+      int tmp = min(qg.size(), qb.size());//换成map验证了下，确实是这里的问题
       tmp = min(tmp, fields);
       for (int i = 0; i < tmp; i++)
       {
