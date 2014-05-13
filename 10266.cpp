@@ -21,7 +21,7 @@ int main()
     int cnt = 0;
     while (getline(cin, s))
     {
-      if (s.[0] == '\n') break;
+      if (s[0] == '\n') break;
       m[s]++;
       cnt++;
     }
