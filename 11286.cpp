@@ -26,7 +26,7 @@ int main()
     int total = 0;
     for (map< vector<int>, int >::iterator iter = m.begin(); iter != m.end(); iter++)
     {
-      if (iter->second == popularity) total++;
+      if (iter->second == popularity) total += popularity;
     }
     cout << total << endl;
   }
