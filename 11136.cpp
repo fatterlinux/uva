@@ -8,7 +8,7 @@ int main()
   while (cin >> test_case, test_case)
   {
     priority_queue<int> max_heap;
-    priority_queue<int> min_heap;
+    priority_queue<int, vector<int>, greater<int> > min_heap;
     long long cost = 0;
     while (test_case--)
     {
