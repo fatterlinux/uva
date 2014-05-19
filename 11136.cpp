@@ -1,5 +1,6 @@
 #include <iostream>
-#include <queue>
+#include <set>
+#include <algorithm>
 using namespace std;
 
 int main()
@@ -7,8 +8,7 @@ int main()
   int test_case;
   while (cin >> test_case, test_case)
   {
-    priority_queue<int> max_heap;
-    priority_queue<int, vector<int>, greater<int> > min_heap;
+    multiset<int> s;
     long long cost = 0;
     while (test_case--)
     {
@@ -18,12 +18,13 @@ int main()
       {
         int n;
         cin >> n;
-        max_heap.push(n);
-        min_heap.push(n);
+        s.insert(n);
       }
-      cost += max_heap.top() - min_heap.top();
-      max_heap.pop();
-      min_heap.pop();
+      set<int>::iterator a = s.begin();
+      set<int>::iterator b = --s.end(); //max_element也会超时
+      cost += *b - *a;
+      s.erase(a);
+      s.erase(b);
     }
     cout << cost << endl;
   }
