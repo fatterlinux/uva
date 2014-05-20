@@ -46,6 +46,7 @@ int main()
         times--;
         a.b = a.c; 
       }
+      if (times == 0) break;
       s.erase(it);
       s.insert(a);
       if (a.b < interval2) interval2 = a.b;
