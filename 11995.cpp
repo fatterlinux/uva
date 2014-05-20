@@ -29,12 +29,12 @@ int main()
             }
             else
             {
-                if (b != q.front()) is_q = false;
-                if (b != pq.top()) is_pq = false;
-                if (b != s.top()) is_s = false;
-                q.pop();
-                pq.pop();
-                s.pop();
+                if (q.empty() || b != q.front()) is_q = false;
+                if (pq.empty() || b != pq.top()) is_pq = false;
+                if (s.empty() || b != s.top()) is_s = false;
+                if (!q.empty())q.pop();
+                if (!pq.empty())pq.pop();
+                if (!s.empty())s.pop();
             }
         }
         int cnt = 0;
