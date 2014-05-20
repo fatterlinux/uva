@@ -1,24 +1,28 @@
 #include <iostream>
 #include <set>
+#include <string>
+
+using namespace std;
 
 class query
 {
   public:
   query(_a, _b):a = _a, b = _b{ c = b;}
   ~query(){}
-  bool operator< (const query& q)
-  {
-    return a < q.a;
-  }
+
   int a, b, c;
 };
 
+  bool operator< (const query& a, const query& q)
+  { 
+    return a.a < q.a;
+  }
 int main()
 {
   multiset<query> s;
-  string s;
+  string ss;
   int interval = 88888;
-  while (cin >>s && s != "#")
+  while (cin >>ss && ss != "#")
   {
     int a, b;
     cin >> a >> b;
@@ -34,14 +38,17 @@ int main()
     set<query>::iterator it;
     for (it = s.begin(); it != s.end(); it++)
     {
-      it->b -= interval;
-      if (it->b == 0)
+      query a = *it;
+      a.b -= interval;
+      if (a.b == 0)
       {
-        cout << it->a << endl;
+        cout << a.a << endl;
         times--;
-        it->b = it->c; 
+        a.b = a.c; 
       }
-      if (it->b < interval2) interval2 = it->b;
+      s.erase(it);
+      s.insert(a);
+      if (a.b < interval2) interval2 = a.b;
     }
     interval = interval2;
   }
