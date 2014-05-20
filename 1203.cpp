@@ -7,7 +7,7 @@ using namespace std;
 class query
 {
   public:
-  query(_a, _b):a = _a, b = _b{ c = b;}
+  query(int _a, int _b):a(_a), b(_b){ c = b;}
   ~query(){}
 
   int a, b, c;
