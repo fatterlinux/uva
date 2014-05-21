@@ -24,7 +24,7 @@ class union_find
   {
     return find(p) == find(q);
   }
-  void union(int p, int q)
+  void union_find(int p, int q)
   {
     int parent_p = find(p);
     int parent_q = find(q);
@@ -46,8 +46,8 @@ class union_find
     delete [] set;
   }
   private:
-  int[] id;
-  int[] set;
+  int* id;
+  int* set;
 };
 
 int main()
@@ -69,10 +69,10 @@ int main()
       char c;
       int a, b;
       cin >> c >> a >> b;
-      if(c == 'c') u.union(a, b);
+      if(c == 'c') u.union_find(a, b);
       else
       {
-        if (connected(a, b)) cnt1++;
+        if (u.connected(a, b)) cnt1++;
         else cnt2++;
       }
     }
