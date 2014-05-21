@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <sstream>
 using namespace std;
 
 class union_find
@@ -55,21 +55,23 @@ int main()
   int test_case;
   cin >> test_case;
   string s;
-
-  while (test_case--)
-  {
       getline(cin, s);
   getline(cin, s);
+  while (test_case--)
+  {
+
     int n;
     cin >> n;
     union_find u(10001);
     int cnt1, cnt2;
     cnt1 = cnt2 = 0;
-    while (n--)
+    while (getline(cin, s))
     {
+      if (s.empty()) break;
+      stringstream ss(s);
       char c;
       int a, b;
-      cin >> c >> a >> b;
+      ss >> c >> a >> b;
       if(c == 'c') u.union_find(a, b);
       else
       {
