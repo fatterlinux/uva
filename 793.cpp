@@ -24,7 +24,7 @@ class union_find
   {
     return find(p) == find(q);
   }
-  void union_find(int p, int q)
+  void union_xxx(int p, int q)
   {
     int parent_p = find(p);
     int parent_q = find(q);
@@ -62,7 +62,8 @@ int main()
 
     int n;
     cin >> n;
-    union_find u(10001);
+    union_find u(n);
+    getline(cin, s);
     int cnt1, cnt2;
     cnt1 = cnt2 = 0;
     while (getline(cin, s))
@@ -72,7 +73,7 @@ int main()
       char c;
       int a, b;
       ss >> c >> a >> b;
-      if(c == 'c') u.union_find(a, b);
+      if(c == 'c') u.union_xxx(a, b);
       else
       {
         if (u.connected(a, b)) cnt1++;
