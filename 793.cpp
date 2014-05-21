@@ -80,7 +80,8 @@ int main()
         else cnt2++;
       }
     }
-    cout << cnt1 << " " << cnt2 << endl;
+    cout << cnt1 << "," << cnt2 << endl;
+    if (test_case) cout << endl;
   }
   return 0;
 }
