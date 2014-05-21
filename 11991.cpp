@@ -26,13 +26,13 @@ int main()
     {
       int aa, b;
       cin >> aa >> b;
-      if (a[aa].size() <b)
+      if (a[b].size() <aa)
       {
         cout << 0;
       }
       else
       {
-        cout << a[aa][b-1];
+        cout << a[b][aa-1];
       }
       cout <<endl;
     }
