@@ -55,10 +55,11 @@ int main()
   int test_case;
   cin >> test_case;
   string s;
-  getline(cin, s);
-  getline(cin, s);
+
   while (test_case--)
   {
+      getline(cin, s);
+  getline(cin, s);
     int n;
     cin >> n;
     union_find u(10001);
