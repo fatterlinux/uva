@@ -1,19 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
 
-static vector<int> a[1000001];
+//static vector<int> a[1000001];
+static map<int , vector<int> > a;
 int main()
 {
   int n, m;
   while (cin >> n && cin >> m)
   {
-    for(int i = 0; i < 1000001;i++)
-    {
-      a[i].clear();
-    }
+    a.clear();
     int i = 1;
     while (i <= n)
     {
@@ -26,7 +25,7 @@ int main()
     {
       int aa, b;
       cin >> aa >> b;
-      if (a[b].size() <aa)
+      if (!a.count(b) || a[b].size() <aa)
       {
         cout << 0;
       }
