@@ -49,3 +49,34 @@ class union_find
   int[] id;
   int[] set;
 };
+
+int main()
+{
+  int test_case;
+  cin >> test_case;
+  string s;
+  getline(cin, s);
+  getline(cin, s);
+  while (test_case--)
+  {
+    int n;
+    cin >> n;
+    union_find u(10001);
+    int cnt1, cnt2;
+    cnt1 = cnt2 = 0;
+    while (n--)
+    {
+      char c;
+      int a, b;
+      cin >> c >> a >> b;
+      if(c == 'c') u.union(a, b);
+      else
+      {
+        if (connected(a, b)) cnt1++;
+        else cnt2++;
+      }
+    }
+    cout << cnt1 << " " << cnt2 << endl;
+  }
+  return 0;
+}
