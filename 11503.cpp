@@ -25,7 +25,7 @@ class uf
   {
     string x = find(a);
     string y = find(b);
-
+    if (x == y) return m[x];
     if (m[x] < m[y])
     {
       id[x] = y;
