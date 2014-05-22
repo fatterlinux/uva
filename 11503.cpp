@@ -8,7 +8,7 @@ using namespace std;
 class uf
 {
   public:
-  uf():cnt(0){}
+  
   string find(string s)
   {
     if (id.find(s) == m.end())
@@ -45,3 +45,23 @@ class uf
   map<string, int> m;
 
 };
+
+int main()
+{
+  int t;
+  cin >> t;
+  
+  while (t--)
+  {
+    int a;
+    cin >> a;
+    uf u;
+    while (a--)
+    {
+      string x, y;
+      cin >> x >> y;
+      cout << u.connected(x, y) <<endl;
+    }
+  }
+  return 0;
+}
