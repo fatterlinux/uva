@@ -1,40 +1,47 @@
 #include <iostream>
 #include <map>
 #include <string>
-#include <set>
+
 using namespace std;
 
-typedef pair<string, <int, string> > elm;
+
 class uf
 {
   public:
   uf():cnt(0){}
-  int find(string s)
+  string find(string s)
   {
-    if (m.find(s) == m.end()) return 0;
+    if (id.find(s) == m.end())
+    {
+      id[s] = s;
+      m[s] = 1;
+    }
     string t = s;
-    while (t != m[t].second) t = m[t].second;
-    return m[t].first; 
+    while (t != id[t]) t = id[t];
+    return t 
   }
   
-  void connected(string a, string b)
+  int connected(string a, string b)
   {
-    int x = find(a);
-    int y = find(b);
-    if (x == 0 && y == 0)
+    string x = find(a);
+    string y = find(b);
+
+    if (m[x] < m[y])
     {
-      elm ea(a, (cnt, a));
-      elm eb(b, (cnt, b));
-      ss[a] = 1;
-      ss[b] = 1;
+      id[x] = y;
+      m[y] += m[x];
+      return m[y];
     }
-  }
-  private:
-  map<elm> m;
-  map<string, int> ss;
-  int cnt;
-  void __connected(sting a, string b)
-  {
+    else
+    {
+      id[y] = x;
+      m[x] += m[y];
+      return m[x];
+    }
     
   }
+  private:
+  map<string, string> id;
+  map<string, int> m;
+
 };
