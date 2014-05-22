@@ -11,14 +11,14 @@ class uf
   
   string find(string s)
   {
-    if (id.find(s) == m.end())
+    if (id.find(s) == id.end())
     {
       id[s] = s;
       m[s] = 1;
     }
     string t = s;
     while (t != id[t]) t = id[t];
-    return t 
+    return t ;
   }
   
   int connected(string a, string b)
