@@ -38,11 +38,11 @@ int query(int i, int l, int r)
   if (r <= mid) return query(2*i, l, r);
   else if (l > mid)
   {
-    return query(2i+1, l, r);
+    return query(2*i+1, l, r);
   }
   else //l<= mid && r > mid
   {
-    return max(query(2i, l, mid), query(2i+1, mid+1, r));
+    return max(query(2*i, l, mid), query(2*i+1, mid+1, r));
   }
 }
 
@@ -67,12 +67,12 @@ int main()
       {
         pre = a[i];
         index++;//不能是0，线段树找不到0索引,和tree的初始化有关系，都是从1开始的下标
-        seg[index].s = i;
-        seg[index].e = i;
+        node[index].s = i;
+        node[index].e = i;
       }
       else
       {
-        seg[index].e = i;
+        node[index].e = i;
       }
       hash[i] = index;
     }
@@ -89,8 +89,8 @@ int main()
       }
       else
       {
-        int ans1 = seg[xx].e - x +1;
-        int ans3 = y - seg[yy] + 1;
+        int ans1 = node[xx].e - x +1;
+        int ans3 = y - node[yy] + 1;
         int ans2 = 0;
         if (yy - xx > 1)//说明有3部分
         {
