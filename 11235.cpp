@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 
 typedef struct seg_s{
@@ -9,13 +9,21 @@ typedef struct seg_s{
 const int maxn = 100005;
 static seg_t node[maxn];//根据a数组，抽象点集
 static int a[maxn], hash[maxn];
-static int index;
+static int index1;
 typedef struct tree_s
 {
   int l;int r;int m;
 }tree_t;
 static tree_t tree[maxn<<2];
 
+void init()
+{
+  index1 = 0;
+  memset(a, 0, sizeof(a));
+  memset(hash, 0, sizeof(hash));
+  memset(node, 0, sizeof(node));
+  memset(tree, 0, sizeof(tree));
+}
 void build(int i, int l, int r)
 {
   tree[i].l = l;
@@ -52,6 +60,7 @@ int main()
   while (cin >> m && m)
   {
     //缺少初始化
+    init();
     int q;
     cin >>q;
     for (int i = 1 ; i <= m ; i++)
@@ -66,17 +75,17 @@ int main()
       if(a[i] != pre)
       {
         pre = a[i];
-        index++;//不能是0，线段树找不到0索引,和tree的初始化有关系，都是从1开始的下标
-        node[index].s = i;
-        node[index].e = i;
+        index1++;//不能是0，线段树找不到0索引,和tree的初始化有关系，都是从1开始的下标
+        node[index1].s = i;
+        node[index1].e = i;
       }
       else
       {
-        node[index].e = i;
+        node[index1].e = i;
       }
-      hash[i] = index;
+      hash[i] = index1;
     }
-    build(1, 1, index);
+    build(1, 1, index1);
     while (q--)
     {
       int x, y;
