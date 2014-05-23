@@ -14,7 +14,7 @@ typedef struct tree_s
 {
   int l;int r;int m;
 }tree_t;
-static int tree[maxn<<2];
+static tree_t tree[maxn<<2];
 
 void build(int i, int l, int r)
 {
@@ -26,16 +26,16 @@ void build(int i, int l, int r)
     return ;
   }
   int mid = (l+r)>>1;
-  build(2i, l, mid);
-  build(2i+1, mid+1, r);
-  tree[i] = max(tree[2i].m, tree[2i+1].m);
+  build(2*i, l, mid);
+  build(2*i+1, mid+1, r);
+  tree[i].m = max(tree[2*i].m, tree[2*i+1].m);
   return;
 }
 int query(int i, int l, int r)
 {
   if (tree[i].l == l && tree[i].r == r) return tree[i].m;
   int mid = (tree[i].l + tree[i].r) >>1;
-  if (r <= mid) return query(2i, l, r);
+  if (r <= mid) return query(2*i, l, r);
   else if (l > mid)
   {
     return query(2i+1, l, r);
