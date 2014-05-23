@@ -16,12 +16,33 @@ typedef struct tree_s
 }tree_t;
 static int tree[maxn<<2];
 
-st::st(int i, int l, int r)
+void build(int i, int l, int r)
 {
   tree[i].l = l;
   tree[i].r = r;
   if (l == r) 
   {
-    tree[i].m = node[l].m;
+    tree[i].m = node[l].e - node[l].s + 1;
+    return ;
+  }
+  int mid = (l+r)>>1;
+  build(2i, l, mid);
+  build(2i+1, mid+1, r);
+  tree[i] = max(tree[2i].m, tree[2i+1].m);
+  return;
+}
+int query(int i, int l, int r)
+{
+  if (tree[i].l == l && tree[i].r == r) return tree[i].m;
+  int mid = (tree[i].l + tree[i].r) >>1;
+  if (r <= mid) return query(2i, l, r);
+  else if (l > mid)
+  {
+    return query(2i+1, l, r);
+  }
+  else //l<= mid && r > mid
+  {
+    return max(query(2i, l, mid), query(2i+1, mid+1, r));
   }
 }
+
