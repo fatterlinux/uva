@@ -8,7 +8,7 @@ typedef struct seg_s{
   }seg_t;
 const int maxn = 100005;
 static seg_t node[maxn];//根据a数组，抽象点集
-static int a[maxn];
+static int a[maxn], hash[maxn];
 static int index;
 typedef struct tree_s
 {
@@ -46,3 +46,60 @@ int query(int i, int l, int r)
   }
 }
 
+int main()
+{
+  int m;
+  while (cin >> m && !m)
+  {
+    //缺少初始化
+    int q;
+    cin >>q;
+    for (int i = 1 ; i <= m ; i++)
+    {
+      int t;
+      cin >> t;
+      a[i] = t;
+    }
+    int pre = maxn +100;//一个不会取到的数做离散初始化
+    for (int i = 1; i <=m; i++)
+    {
+      if(a[i] != pre)
+      {
+        pre = a[i];
+        index++;//不能是0，线段树找不到0索引,和tree的初始化有关系，都是从1开始的下标
+        seg[index].s = i;
+        seg[index].e = i;
+      }
+      else
+      {
+        seg[index].e = i;
+      }
+      hash[i] = index;
+    }
+    build(1, 1, index);
+    while (q--)
+    {
+      int x, y;
+      cin >> x >> y;
+      int xx = hash[x];
+      int yy = hash[y];
+      if (xx == yy)
+      {
+        cout << yy - xx + 1 << endl;
+      }
+      else
+      {
+        int ans1 = seg[xx].e - x +1;
+        int ans3 = y - seg[yy] + 1;
+        int ans2 = 0;
+        if (yy - xx > 1)//说明有3部分
+        {
+          ans2 = query(1, xx +1, yy -1);
+        }
+        int mm = max(max(ans1, ans2), ans3);
+        cout <<mm<<endl;
+      }
+    }
+  }
+  return 0;
+}
