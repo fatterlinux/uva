@@ -49,7 +49,7 @@ int query(int i, int l, int r)
 int main()
 {
   int m;
-  while (cin >> m && !m)
+  while (cin >> m && m)
   {
     //缺少初始化
     int q;
@@ -90,7 +90,7 @@ int main()
       else
       {
         int ans1 = node[xx].e - x +1;
-        int ans3 = y - node[yy] + 1;
+        int ans3 = y - node[yy].s + 1;
         int ans2 = 0;
         if (yy - xx > 1)//说明有3部分
         {
