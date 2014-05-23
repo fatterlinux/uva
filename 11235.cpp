@@ -94,7 +94,7 @@ int main()
       int yy = hash[y];
       if (xx == yy)
       {
-        cout << yy - xx + 1 << endl;
+        cout << y - x + 1 << endl;
       }
       else
       {
