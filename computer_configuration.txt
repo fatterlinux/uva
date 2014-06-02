@@ -1,0 +1,13 @@
+	
+电脑型号	X86 兼容 台式电脑
+操作系统	Windows 7 旗舰版 32位 ( DirectX 11 )
+	
+处理器	英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核
+主板	华硕 H61M-E (英特尔 Ivy Bridge - H61 芯片组)
+内存	4 GB ( 金士顿 DDR3 1600MHz )
+主硬盘	西数 WDC WD5000AADS-00S9B0 ( 500 GB / 5400-7200 转/分 )
+显卡	Nvidia GeForce GT 240 ( 512 MB / Nvidia )
+显示器	飞利浦 PHLC047 Philips 230T ( 23.1 英寸 )
+光驱	先锋 DVD-RW DVR-220L DVD刻录机
+声卡	瑞昱 ALC887 @ 英特尔 6 Series Chipset 高保真音频
+网卡	瑞昱 RTL8168F PCI-E Gigabit Ethernet NIC / 华硕
