@@ -1,51 +1,58 @@
 #include <iostream>
+#include <cstdio>
 #include <set>
 #include <algorithm>
+#include <string>
 
 using namespace std;
-
-struct key_value
+struct dict
 {
     string k;
     set<string> v;
-};
-const int max_size = 2000;
-key_value dic[max_size];
-int idx;
-
-bool cmp_fun(const key_value& a, const key_value& b)
+}; 
+bool cmp_f(const dict& a, const dict& b)
 {
-    return a.k < b.k;
+    return a.k< b.k;
 }
+
 int main()
 {
-    string a, b;
-    int n;
-    cin >> n;
-    while (n--)
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+#endif
+    int t ;
+    cin >> t;
+    dict d[1000];
+    int cnt(0);
+    while (t--)
     {
+        string a, b;
         cin >> a;
         getline(cin, b);
+        b.erase(0, b.find_first_not_of(" "));
         int i;
-        for (i = 0; i < idx; i++ )
+        for (i = 0; i < cnt; i++)
         {
-            if (dic[i].k == a)
+            if (d[i].k == a)
             {
-                dic[i].v.insert(b);
                 break;
             }
         }
-        if (i == idx)
+        if (i == cnt)
         {
-            idx++;
-            dic[i].k = a;
-            dic[i].v.insert(b);
+            d[i].k = a;
+            d[i].v.insert(b);
+            cnt++;
+        }
+        else
+        {
+            d[i].v.insert(b);
         }
     }
-    sort(dic, dic+idx, cmp_fun);
-    for (int i = 0; i < idx; i++)
+    sort(d, d + cnt, cmp_f);
+    for (int i = 0; i < cnt; i++)
     {
-        cout << dic[i].k << " " << dic[i].v.size() << endl;
+        cout << d[i].k << " " << d[i].v.size() << endl;
     }
     return 0;
 }
