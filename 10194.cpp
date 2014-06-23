@@ -3,6 +3,7 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 struct team_info{
     std::string name;
@@ -22,7 +23,16 @@ struct team_info{
 
 bool cmp1(const team_info& a, const team_info& b)
 {
-    return a.name < b.name;
+    string c(a.name), d(b.name);
+    for (int i = 0; i < a.name.size(); i++)
+    {
+        c[i] = tolower(c[i]);
+    }
+    for (int i = 0; i < b.name.size(); i++)
+    {
+        d[i] = tolower(d[i]);
+    }
+    return c < d;
 }
 bool cmp2(const team_info& a, const team_info& b)
 {
@@ -44,9 +54,13 @@ bool cmp6(const team_info& a, const team_info& b)
 {
     return a.points > b.points;
 }
-const int max_teams = 1000;
+const int max_teams = 30;
 int main()
 {
+#ifndef ONLINE_JUDGE
+    freopen("in.txt", "r", stdin);
+    //freopen("out.txt", "w", stdout);
+#endif
     
     int test;
     std::cin >> test;
@@ -70,31 +84,20 @@ int main()
         int records;
         std::cin >> records;
         getline(std::cin, ssss);
-        for (int i = 0; i < records; i++)
+        for (int k = 0; k < records; k++)
         {
             std::string ss;
             getline(std::cin, ss);
-            int i = 0;
-            std::string t1;
-            while (i < ss.size() && ss[i] != '#')
-            {
-                t1 += ss[i];
-                i++;
-            }
-            i++;
-            int t1_score;
-            t1_score = ss[i] - '0';
-            i++;
-            i++;
-            int t2_score = ss[i] - '0';
-            i++;
-            i++;
-            std::string t2;
-            while (i < ss.size())
-            {
-                t2 += ss[i++];
-            }
-            for (int i = 0; i < num; i++)
+            int pos1(ss.find('#')), pos2(ss.rfind('#'));
+
+            std::string t1(ss.substr(0, pos1)), t2(ss.substr(pos2+1));
+            stringstream sin(ss.substr(pos1+1));
+            int t1_score, t2_score;
+             sin >> t1_score;
+             char c;
+             sin >> c;
+             sin >> t2_score;
+              for (int i = 0; i < num; i++)
             {
                 if (t[i].name == t1)
                 {
@@ -157,5 +160,6 @@ int main()
             cout << endl;
         }
     }
+
     return 0;
 }
