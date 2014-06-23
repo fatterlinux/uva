@@ -58,7 +58,7 @@ int main()
         getline(std::cin, ssss);
         for(int i = 0; i < num; i++)
         {
-            getline(std::cin, ssss);
+            getline(std::cin, s);
             t[i].name = s;
         }
         int records;
