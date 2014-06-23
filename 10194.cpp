@@ -45,6 +45,8 @@ int main()
     team_info t[max_teams];
     int test;
     std::cin >> test;
+    std::string ssss;
+    getline(std::cin, ssss);
     while (test--)
     {
         memset(t, 0, sizeof(t));
