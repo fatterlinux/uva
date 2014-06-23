@@ -55,13 +55,15 @@ int main()
         std::cout << s << std::endl;
         int num;
         std::cin >> num;
+        getline(std::cin, ssss);
         for(int i = 0; i < num; i++)
         {
-            std::cin >> s;
+            getline(std::cin, ssss);
             t[i].name = s;
         }
         int records;
         std::cin >> records;
+        getline(std::cin, ssss);
         for (int i = 0; i < records; i++)
         {
             std::string ss;
