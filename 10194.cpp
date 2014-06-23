@@ -3,7 +3,7 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
-
+using namespace std;
 struct team_info{
     std::string name;
     int goals_scored, goals_against;
@@ -13,6 +13,11 @@ struct team_info{
     int ties;
     int losses;
     int goal_difference;
+    team_info()
+    {
+        name = "";
+        goals_scored = goals_against = points = games_played = wins = ties = losses = goal_difference = 0;
+    }
 };
 
 bool cmp1(const team_info& a, const team_info& b)
@@ -42,14 +47,15 @@ bool cmp6(const team_info& a, const team_info& b)
 const int max_teams = 1000;
 int main()
 {
-    team_info t[max_teams];
+    
     int test;
     std::cin >> test;
     std::string ssss;
     getline(std::cin, ssss);
     while (test--)
     {
-        memset(t, 0, sizeof(t));
+        team_info t[max_teams];
+        //memset(t, 0, sizeof(t));
         std::string s;
         std::getline(std::cin, s);
         std::cout << s << std::endl;
@@ -145,6 +151,10 @@ int main()
             printf("%d) %s %dp, %dg (%d-%d-%d), %dgd (%d-%d)\n",
                     i+1, t[i].name.c_str(), t[i].points, t[i].games_played, t[i].wins, t[i].ties, t[i].losses, t[i].goal_difference, 
                     t[i].goals_scored, t[i].goals_against);
+        }
+        if (test)
+        {
+            cout << endl;
         }
     }
     return 0;
