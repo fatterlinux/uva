@@ -62,7 +62,7 @@ int main()
         std::cin >> records;
         for (int i = 0; i < records; i++)
         {
-            std:;string ss;
+            std::string ss;
             getline(std::cin, ss);
             int i = 0;
             std::string t1;
