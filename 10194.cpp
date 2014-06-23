@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <string>
 #include <cstring>
+#include <algorithm>
 
 struct team_info{
     std::string name;
@@ -42,13 +43,13 @@ const int max_teams = 1000;
 int main()
 {
     team_info t[max_teams];
-    int t;
-    std::cin >> t;
-    while (t--)
+    int test;
+    std::cin >> test;
+    while (test--)
     {
         memset(t, 0, sizeof(t));
         std::string s;
-        std::getline(cin, s);
+        std::getline(std::cin, s);
         std::cout << s << std::endl;
         int num;
         std::cin >> num;
@@ -61,10 +62,10 @@ int main()
         std::cin >> records;
         for (int i = 0; i < records; i++)
         {
-            string ss;
+            std:;string ss;
             getline(std::cin, ss);
             int i = 0;
-            string t1;
+            std::string t1;
             while (i < ss.size() && ss[i] != '#')
             {
                 t1 += ss[i];
@@ -78,7 +79,7 @@ int main()
             int t2_score = ss[i] - '0';
             i++;
             i++;
-            string t2;
+            std::string t2;
             while (i < ss.size())
             {
                 t2 += ss[i++];
@@ -129,17 +130,18 @@ int main()
                 }
             }
         }
-        sort(t, t+num, cmp1);
-        sort_stable(t, t+num, cmp2);
-        sort_stable(t, t+num, cmp3);
-        sort_stable(t, t+num, cmp4);
-        sort_stable(t, t+num, cmp5);
-        sort_stable(t, t+num, cmp6);
+        std::sort(t, t+num, cmp1);
+        std::stable_sort(t, t+num, cmp2);
+        std::stable_sort(t, t+num, cmp3);
+        std::stable_sort(t, t+num, cmp4);
+        std::stable_sort(t, t+num, cmp5);
+        std::stable_sort(t, t+num, cmp6);
         for (int i = 0; i <num; i++)
         {
             printf("%d) %s %dp, %dg (%d-%d-%d), %dgd (%d-%d)\n",
-                    i+1, t[i].name.c_str(), t[i].points, t[i].game_played, t[i].wins, t[i].ties, t[i].losses, t[i].goal_difference, 
-                    t[i].goal_scored, t[i].goal_against);
+                    i+1, t[i].name.c_str(), t[i].points, t[i].games_played, t[i].wins, t[i].ties, t[i].losses, t[i].goal_difference, 
+                    t[i].goals_scored, t[i].goals_against);
         }
     }
+    return 0;
 }
