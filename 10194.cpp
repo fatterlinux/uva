@@ -18,7 +18,26 @@ bool cmp1(const team_info& a, const team_info& b)
 {
     return a.name < b.name;
 }
-
+bool cmp2(const team_info& a, const team_info& b)
+{
+    return a.losses < b.losses;
+}
+bool cmp3(const team_info& a, const team_info& b)
+{
+    return a.goals_scored > b.goals_scored;
+}
+bool cmp4(const team_info& a, const team_info& b)
+{
+    return a.goal_difference > b.goal_difference;
+}
+bool cmp5(const team_info& a, const team_info& b)
+{
+    return a.wins > b.wins;
+}
+bool cmp6(const team_info& a, const team_info& b)
+{
+    return a.points > b.points;
+}
 const int max_teams = 1000;
 int main()
 {
@@ -109,6 +128,18 @@ int main()
                     t[i].games_played++;
                 }
             }
+        }
+        sort(t, t+num, cmp1);
+        sort_stable(t, t+num, cmp2);
+        sort_stable(t, t+num, cmp3);
+        sort_stable(t, t+num, cmp4);
+        sort_stable(t, t+num, cmp5);
+        sort_stable(t, t+num, cmp6);
+        for (int i = 0; i <num; i++)
+        {
+            printf("%d) %s %dp, %dg (%d-%d-%d), %dgd (%d-%d)\n",
+                    i+1, t[i].name.c_str(), t[i].points, t[i].game_played, t[i].wins, t[i].ties, t[i].losses, t[i].goal_difference, 
+                    t[i].goal_scored, t[i].goal_against);
         }
     }
 }
