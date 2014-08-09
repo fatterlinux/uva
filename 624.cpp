@@ -53,7 +53,7 @@ void print_path(int n, int v)
 }
 int main()
 {
-#ifndef _ONLINE_JUDGE_
+#ifndef ONLINE_JUDGE
 	freopen("624.in", "r", stdin);
 #endif
 	int value, number_tracks;
