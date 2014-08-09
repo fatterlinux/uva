@@ -3,11 +3,12 @@
 #include <cstdio>
 
 
+
 using namespace std;
 const int max_n = 21;
 int track[max_n];
 int s[max_n][10000];
-int f[10000];
+int f[max_n][10000];
 
 int dp(int n, int v)
 {
@@ -20,23 +21,35 @@ int dp(int n, int v)
 		res1 = dp(n - 1, v - track[n - 1]) + track[n - 1];
 	}
 	
-	res2 = s[n][v] = dp(n - 1, v);
+	res2  = dp(n - 1, v);
 
 	if (res1 > res2)
 	{
-		f[n] = n;
+		f[n][v] = track[n - 1];
 	}
-	else 
+	else
 	{
-		f[n] = n - 1;
+		f[n][v] = 0;
 	}
 	return s[n][v] = max(res1, res2);
 }
-void print_path(int n, int v, int s)
+void print_path(int n, int v)
 {
-	if (v == 0) return ;
-	print_path(f[n], s[n][v] - track[f[n] - 1]);
-	printf("%d ", track[f[n][v] - 1]);
+	if (n == 0) return;
+	if (n == 1 && f[n][v] > 0) 
+	{
+		printf("%d ", f[n][v]);
+		return;
+	}
+	if (f[n][v] > 0)
+	{
+		print_path(n - 1, v - f[n][v]);
+		printf("%d ", f[n][v]);
+	}
+	else
+	{
+		print_path(n - 1, v);
+	}
 }
 int main()
 {
@@ -53,8 +66,8 @@ int main()
 		{
 			scanf("%d", &track[i]);
 		}
-		int sss =  dp(number_tracks, value, sss);
-		print_path(number_tracks, sss);
+		int sss =  dp(number_tracks, value);
+		print_path(number_tracks, value);
 		cout << "sum:" << sss << endl;
 	}
 	return 0;
