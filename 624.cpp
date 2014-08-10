@@ -36,11 +36,13 @@ int dp(int n, int v)
 void print_path(int n, int v)
 {
 	if (n == 0) return;
+#if 0
 	if (n == 1 && f[n][v] > 0) 
 	{
 		printf("%d ", f[n][v]);
 		return;
 	}
+#endif
 	if (f[n][v] > 0)
 	{
 		print_path(n - 1, v - f[n][v]);
