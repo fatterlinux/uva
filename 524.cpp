@@ -71,11 +71,11 @@ void backtracking(int cur)
             printf("\n");
         }
     }
-    else for (int i = 0; i < N; i++)
+    else for (int i = 1; i < N; i++)
     {
         res[cur] = i + 1;
         bool ok(true);
-        for (int j = 0; j < cur; j++)
+        for (int j = 1; j < cur; j++)
         {
             if (res[j] == res[cur])
             {
@@ -96,11 +96,16 @@ int main()
 #ifndef ONLINE_JUDGE
     freopen("524.in", "r", stdin);
 #endif
+    int cnt = 0;
     prime_table();
     //prime_table_print();
     while(scanf("%d", &N) != EOF)
     {
-        backtracking(0);
+        cnt++;
+        printf("Case %d:\n", cnt);
+        res[0] = 1;
+        backtracking(1);
+        cout << endl;
     }
     return 0;
 }
