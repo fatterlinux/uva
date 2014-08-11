@@ -64,9 +64,10 @@ void backtracking(int cur)
     {
         if (is_prime(res[N-1] + res[0]))
         {
-            for (int i = 0; i < N; i++)
+            printf("1");
+            for (int i = 1; i < N; i++)
             {
-                printf("%d ", res[i]);
+                printf(" %d", res[i]);
             }
             printf("\n");
         }
@@ -101,11 +102,10 @@ int main()
     //prime_table_print();
     while(scanf("%d", &N) != EOF)
     {
-        cnt++;
+        if (cnt++) printf("\n");
         printf("Case %d:\n", cnt);
         res[0] = 1;
         backtracking(1);
-        cout << endl;
     }
     return 0;
 }
